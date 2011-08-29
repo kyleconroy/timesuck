@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		95BDD6B3140B32FD00BF6B6B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BDD6B2140B32FD00BF6B6B /* Cocoa.framework */; };
+		95BDD6BD140B32FD00BF6B6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95BDD6BB140B32FD00BF6B6B /* InfoPlist.strings */; };
+		95BDD6C0140B32FD00BF6B6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDD6BF140B32FD00BF6B6B /* main.m */; };
+		95BDD6C3140B32FE00BF6B6B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 95BDD6C1140B32FE00BF6B6B /* Credits.rtf */; };
+		95BDD6C6140B32FE00BF6B6B /* timesuckAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDD6C5140B32FE00BF6B6B /* timesuckAppDelegate.m */; };
+		95BDD6C9140B32FE00BF6B6B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95BDD6C7140B32FE00BF6B6B /* MainMenu.xib */; };
+		95BDD6CC140B32FE00BF6B6B /* timesuck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95BDD6CA140B32FE00BF6B6B /* timesuck.xcdatamodeld */; };
+		95BDD6D3140B32FE00BF6B6B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BDD6B2140B32FD00BF6B6B /* Cocoa.framework */; };
+		95BDD6DB140B32FE00BF6B6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95BDD6D9140B32FE00BF6B6B /* InfoPlist.strings */; };
+		95BDD6DE140B32FE00BF6B6B /* timesuckTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 95BDD6DD140B32FE00BF6B6B /* timesuckTests.h */; };
+		95BDD6E0140B32FE00BF6B6B /* timesuckTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDD6DF140B32FE00BF6B6B /* timesuckTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		95BDD6D4140B32FE00BF6B6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95BDD6A5140B32FD00BF6B6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95BDD6AD140B32FD00BF6B6B;
+			remoteInfo = timesuck;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		95BDD6AE140B32FD00BF6B6B /* timesuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timesuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95BDD6B2140B32FD00BF6B6B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		95BDD6B5140B32FD00BF6B6B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		95BDD6B6140B32FD00BF6B6B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		95BDD6B7140B32FD00BF6B6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		95BDD6BA140B32FD00BF6B6B /* timesuck-Info.plist */ = {isa = PBXFileReference; path = "timesuck-Info.plist"; sourceTree = "<group>"; };
+		95BDD6BC140B32FD00BF6B6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		95BDD6BE140B32FD00BF6B6B /* timesuck-Prefix.pch */ = {isa = PBXFileReference; path = "timesuck-Prefix.pch"; sourceTree = "<group>"; };
+		95BDD6BF140B32FD00BF6B6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		95BDD6C2140B32FE00BF6B6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		95BDD6C4140B32FE00BF6B6B /* timesuckAppDelegate.h */ = {isa = PBXFileReference; path = timesuckAppDelegate.h; sourceTree = "<group>"; };
+		95BDD6C5140B32FE00BF6B6B /* timesuckAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = timesuckAppDelegate.m; sourceTree = "<group>"; };
+		95BDD6C8140B32FE00BF6B6B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		95BDD6CB140B32FE00BF6B6B /* timesuck.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = timesuck.xcdatamodel; sourceTree = "<group>"; };
+		95BDD6D2140B32FE00BF6B6B /* timesuckTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = timesuckTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95BDD6D8140B32FE00BF6B6B /* timesuckTests-Info.plist */ = {isa = PBXFileReference; path = "timesuckTests-Info.plist"; sourceTree = "<group>"; };
+		95BDD6DA140B32FE00BF6B6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		95BDD6DC140B32FE00BF6B6B /* timesuckTests-Prefix.pch */ = {isa = PBXFileReference; path = "timesuckTests-Prefix.pch"; sourceTree = "<group>"; };
+		95BDD6DD140B32FE00BF6B6B /* timesuckTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timesuckTests.h; sourceTree = "<group>"; };
+		95BDD6DF140B32FE00BF6B6B /* timesuckTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = timesuckTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95BDD6AB140B32FD00BF6B6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95BDD6B3140B32FD00BF6B6B /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95BDD6CE140B32FE00BF6B6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95BDD6D3140B32FE00BF6B6B /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95BDD6A3140B32FD00BF6B6B = {
+			isa = PBXGroup;
+			children = (
+				95BDD6B8140B32FD00BF6B6B /* timesuck */,
+				95BDD6D6140B32FE00BF6B6B /* timesuckTests */,
+				95BDD6B1140B32FD00BF6B6B /* Frameworks */,
+				95BDD6AF140B32FD00BF6B6B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		95BDD6AF140B32FD00BF6B6B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95BDD6AE140B32FD00BF6B6B /* timesuck.app */,
+				95BDD6D2140B32FE00BF6B6B /* timesuckTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95BDD6B1140B32FD00BF6B6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95BDD6B2140B32FD00BF6B6B /* Cocoa.framework */,
+				95BDD6B4140B32FD00BF6B6B /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95BDD6B4140B32FD00BF6B6B /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95BDD6B5140B32FD00BF6B6B /* AppKit.framework */,
+				95BDD6B6140B32FD00BF6B6B /* CoreData.framework */,
+				95BDD6B7140B32FD00BF6B6B /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		95BDD6B8140B32FD00BF6B6B /* timesuck */ = {
+			isa = PBXGroup;
+			children = (
+				95BDD6C4140B32FE00BF6B6B /* timesuckAppDelegate.h */,
+				95BDD6C5140B32FE00BF6B6B /* timesuckAppDelegate.m */,
+				95BDD6C7140B32FE00BF6B6B /* MainMenu.xib */,
+				95BDD6CA140B32FE00BF6B6B /* timesuck.xcdatamodeld */,
+				95BDD6B9140B32FD00BF6B6B /* Supporting Files */,
+			);
+			path = timesuck;
+			sourceTree = "<group>";
+		};
+		95BDD6B9140B32FD00BF6B6B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				95BDD6BA140B32FD00BF6B6B /* timesuck-Info.plist */,
+				95BDD6BB140B32FD00BF6B6B /* InfoPlist.strings */,
+				95BDD6BE140B32FD00BF6B6B /* timesuck-Prefix.pch */,
+				95BDD6BF140B32FD00BF6B6B /* main.m */,
+				95BDD6C1140B32FE00BF6B6B /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95BDD6D6140B32FE00BF6B6B /* timesuckTests */ = {
+			isa = PBXGroup;
+			children = (
+				95BDD6DD140B32FE00BF6B6B /* timesuckTests.h */,
+				95BDD6DF140B32FE00BF6B6B /* timesuckTests.m */,
+				95BDD6D7140B32FE00BF6B6B /* Supporting Files */,
+			);
+			path = timesuckTests;
+			sourceTree = "<group>";
+		};
+		95BDD6D7140B32FE00BF6B6B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				95BDD6D8140B32FE00BF6B6B /* timesuckTests-Info.plist */,
+				95BDD6D9140B32FE00BF6B6B /* InfoPlist.strings */,
+				95BDD6DC140B32FE00BF6B6B /* timesuckTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95BDD6AD140B32FD00BF6B6B /* timesuck */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95BDD6E3140B32FE00BF6B6B /* Build configuration list for PBXNativeTarget "timesuck" */;
+			buildPhases = (
+				95BDD6AA140B32FD00BF6B6B /* Sources */,
+				95BDD6AB140B32FD00BF6B6B /* Frameworks */,
+				95BDD6AC140B32FD00BF6B6B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = timesuck;
+			productName = timesuck;
+			productReference = 95BDD6AE140B32FD00BF6B6B /* timesuck.app */;
+			productType = "com.apple.product-type.application";
+		};
+		95BDD6D1140B32FE00BF6B6B /* timesuckTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95BDD6E6140B32FE00BF6B6B /* Build configuration list for PBXNativeTarget "timesuckTests" */;
+			buildPhases = (
+				95BDD6CD140B32FE00BF6B6B /* Sources */,
+				95BDD6CE140B32FE00BF6B6B /* Frameworks */,
+				95BDD6CF140B32FE00BF6B6B /* Resources */,
+				95BDD6D0140B32FE00BF6B6B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95BDD6D5140B32FE00BF6B6B /* PBXTargetDependency */,
+			);
+			name = timesuckTests;
+			productName = timesuckTests;
+			productReference = 95BDD6D2140B32FE00BF6B6B /* timesuckTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95BDD6A5140B32FD00BF6B6B /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 95BDD6A8140B32FD00BF6B6B /* Build configuration list for PBXProject "timesuck" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 95BDD6A3140B32FD00BF6B6B;
+			productRefGroup = 95BDD6AF140B32FD00BF6B6B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95BDD6AD140B32FD00BF6B6B /* timesuck */,
+				95BDD6D1140B32FE00BF6B6B /* timesuckTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95BDD6AC140B32FD00BF6B6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95BDD6BD140B32FD00BF6B6B /* InfoPlist.strings in Resources */,
+				95BDD6C3140B32FE00BF6B6B /* Credits.rtf in Resources */,
+				95BDD6C9140B32FE00BF6B6B /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95BDD6CF140B32FE00BF6B6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95BDD6DB140B32FE00BF6B6B /* InfoPlist.strings in Resources */,
+				95BDD6DE140B32FE00BF6B6B /* timesuckTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		95BDD6D0140B32FE00BF6B6B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95BDD6AA140B32FD00BF6B6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95BDD6C0140B32FD00BF6B6B /* main.m in Sources */,
+				95BDD6C6140B32FE00BF6B6B /* timesuckAppDelegate.m in Sources */,
+				95BDD6CC140B32FE00BF6B6B /* timesuck.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95BDD6CD140B32FE00BF6B6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95BDD6E0140B32FE00BF6B6B /* timesuckTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		95BDD6D5140B32FE00BF6B6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95BDD6AD140B32FD00BF6B6B /* timesuck */;
+			targetProxy = 95BDD6D4140B32FE00BF6B6B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		95BDD6BB140B32FD00BF6B6B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95BDD6BC140B32FD00BF6B6B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		95BDD6C1140B32FE00BF6B6B /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95BDD6C2140B32FE00BF6B6B /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		95BDD6C7140B32FE00BF6B6B /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95BDD6C8140B32FE00BF6B6B /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		95BDD6D9140B32FE00BF6B6B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95BDD6DA140B32FE00BF6B6B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		95BDD6E1140B32FE00BF6B6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		95BDD6E2140B32FE00BF6B6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		95BDD6E4140B32FE00BF6B6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "timesuck/timesuck-Prefix.pch";
+				INFOPLIST_FILE = "timesuck/timesuck-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		95BDD6E5140B32FE00BF6B6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "timesuck/timesuck-Prefix.pch";
+				INFOPLIST_FILE = "timesuck/timesuck-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		95BDD6E7140B32FE00BF6B6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/timesuck.app/Contents/MacOS/timesuck";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "timesuckTests/timesuckTests-Prefix.pch";
+				INFOPLIST_FILE = "timesuckTests/timesuckTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		95BDD6E8140B32FE00BF6B6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/timesuck.app/Contents/MacOS/timesuck";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "timesuckTests/timesuckTests-Prefix.pch";
+				INFOPLIST_FILE = "timesuckTests/timesuckTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95BDD6A8140B32FD00BF6B6B /* Build configuration list for PBXProject "timesuck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95BDD6E1140B32FE00BF6B6B /* Debug */,
+				95BDD6E2140B32FE00BF6B6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95BDD6E3140B32FE00BF6B6B /* Build configuration list for PBXNativeTarget "timesuck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95BDD6E4140B32FE00BF6B6B /* Debug */,
+				95BDD6E5140B32FE00BF6B6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		95BDD6E6140B32FE00BF6B6B /* Build configuration list for PBXNativeTarget "timesuckTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95BDD6E7140B32FE00BF6B6B /* Debug */,
+				95BDD6E8140B32FE00BF6B6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		95BDD6CA140B32FE00BF6B6B /* timesuck.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				95BDD6CB140B32FE00BF6B6B /* timesuck.xcdatamodel */,
+			);
+			currentVersion = 95BDD6CB140B32FE00BF6B6B /* timesuck.xcdatamodel */;
+			path = timesuck.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 95BDD6A5140B32FD00BF6B6B /* Project object */;
+}
