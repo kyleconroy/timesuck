@@ -14,7 +14,17 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    NSNotificationCenter *notCenter;
+    
+    notCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
+    [notCenter addObserver:self selector:@selector(notificationDidHappen:) name:nil object:nil];
+}
+
+- (void)notificationDidHappen:(NSNotification *)notification
+{
+    NSLog(@"%@ %@", NSUserName(), notification.name);
+    NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
+    NSLog(@"%@", [app localizedName]);
 }
 
 /**
