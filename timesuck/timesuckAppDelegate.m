@@ -8,12 +8,25 @@
 
 #import "timesuckAppDelegate.h"
 
+#import "DDLog.h"
+#import "DDFileLogger.h"
+
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @implementation timesuckAppDelegate
 
 @synthesize window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    
+    // Setup logging
+    fileLogger = [[DDFileLogger alloc] init];
+    fileLogger.rollingFrequency = 60 * 60 * 72; // 72 hour rolling
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 100;
+    
+    [DDLog addLogger:fileLogger];
+    
     NSNotificationCenter *notCenter;
     
     notCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
@@ -22,9 +35,11 @@
 
 - (void)notificationDidHappen:(NSNotification *)notification
 {
-    NSLog(@"%@ %@", NSUserName(), notification.name);
     NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
-    NSLog(@"%@", [app localizedName]);
+    if (app == nil)
+        DDLogInfo(@"%@ %@", NSUserName(), notification.name);
+    else
+        DDLogInfo(@"%@ %@ %@", NSUserName(), notification.name, [app localizedName]);
 }
 
 /**

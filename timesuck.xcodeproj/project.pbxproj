@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9566DCD4140B69E60030399A /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9566DCCB140B69E60030399A /* DDAbstractDatabaseLogger.m */; };
+		9566DCD5140B69E60030399A /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9566DCCD140B69E60030399A /* DDASLLogger.m */; };
+		9566DCD6140B69E60030399A /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9566DCCF140B69E60030399A /* DDFileLogger.m */; };
+		9566DCD7140B69E60030399A /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9566DCD1140B69E60030399A /* DDLog.m */; };
+		9566DCD8140B69E60030399A /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9566DCD3140B69E60030399A /* DDTTYLogger.m */; };
 		95BDD6B3140B32FD00BF6B6B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BDD6B2140B32FD00BF6B6B /* Cocoa.framework */; };
 		95BDD6BD140B32FD00BF6B6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95BDD6BB140B32FD00BF6B6B /* InfoPlist.strings */; };
 		95BDD6C0140B32FD00BF6B6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDD6BF140B32FD00BF6B6B /* main.m */; };
@@ -31,24 +36,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9566DCCA140B69E60030399A /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		9566DCCB140B69E60030399A /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		9566DCCC140B69E60030399A /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		9566DCCD140B69E60030399A /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		9566DCCE140B69E60030399A /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		9566DCCF140B69E60030399A /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		9566DCD0140B69E60030399A /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		9566DCD1140B69E60030399A /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		9566DCD2140B69E60030399A /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		9566DCD3140B69E60030399A /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
 		95BDD6AE140B32FD00BF6B6B /* timesuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timesuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BDD6B2140B32FD00BF6B6B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		95BDD6B5140B32FD00BF6B6B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		95BDD6B6140B32FD00BF6B6B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		95BDD6B7140B32FD00BF6B6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		95BDD6BA140B32FD00BF6B6B /* timesuck-Info.plist */ = {isa = PBXFileReference; path = "timesuck-Info.plist"; sourceTree = "<group>"; };
+		95BDD6BA140B32FD00BF6B6B /* timesuck-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "timesuck-Info.plist"; sourceTree = "<group>"; };
 		95BDD6BC140B32FD00BF6B6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		95BDD6BE140B32FD00BF6B6B /* timesuck-Prefix.pch */ = {isa = PBXFileReference; path = "timesuck-Prefix.pch"; sourceTree = "<group>"; };
+		95BDD6BE140B32FD00BF6B6B /* timesuck-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "timesuck-Prefix.pch"; sourceTree = "<group>"; };
 		95BDD6BF140B32FD00BF6B6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		95BDD6C2140B32FE00BF6B6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		95BDD6C4140B32FE00BF6B6B /* timesuckAppDelegate.h */ = {isa = PBXFileReference; path = timesuckAppDelegate.h; sourceTree = "<group>"; };
+		95BDD6C4140B32FE00BF6B6B /* timesuckAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timesuckAppDelegate.h; sourceTree = "<group>"; };
 		95BDD6C5140B32FE00BF6B6B /* timesuckAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = timesuckAppDelegate.m; sourceTree = "<group>"; };
 		95BDD6C8140B32FE00BF6B6B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		95BDD6CB140B32FE00BF6B6B /* timesuck.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = timesuck.xcdatamodel; sourceTree = "<group>"; };
 		95BDD6D2140B32FE00BF6B6B /* timesuckTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = timesuckTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		95BDD6D8140B32FE00BF6B6B /* timesuckTests-Info.plist */ = {isa = PBXFileReference; path = "timesuckTests-Info.plist"; sourceTree = "<group>"; };
+		95BDD6D8140B32FE00BF6B6B /* timesuckTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "timesuckTests-Info.plist"; sourceTree = "<group>"; };
 		95BDD6DA140B32FE00BF6B6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		95BDD6DC140B32FE00BF6B6B /* timesuckTests-Prefix.pch */ = {isa = PBXFileReference; path = "timesuckTests-Prefix.pch"; sourceTree = "<group>"; };
+		95BDD6DC140B32FE00BF6B6B /* timesuckTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "timesuckTests-Prefix.pch"; sourceTree = "<group>"; };
 		95BDD6DD140B32FE00BF6B6B /* timesuckTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timesuckTests.h; sourceTree = "<group>"; };
 		95BDD6DF140B32FE00BF6B6B /* timesuckTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = timesuckTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,9 +88,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9566DCC9140B69E60030399A /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				9566DCCA140B69E60030399A /* DDAbstractDatabaseLogger.h */,
+				9566DCCB140B69E60030399A /* DDAbstractDatabaseLogger.m */,
+				9566DCCC140B69E60030399A /* DDASLLogger.h */,
+				9566DCCD140B69E60030399A /* DDASLLogger.m */,
+				9566DCCE140B69E60030399A /* DDFileLogger.h */,
+				9566DCCF140B69E60030399A /* DDFileLogger.m */,
+				9566DCD0140B69E60030399A /* DDLog.h */,
+				9566DCD1140B69E60030399A /* DDLog.m */,
+				9566DCD2140B69E60030399A /* DDTTYLogger.h */,
+				9566DCD3140B69E60030399A /* DDTTYLogger.m */,
+			);
+			name = Logging;
+			path = ../../cocoalumberjack/Lumberjack;
+			sourceTree = "<group>";
+		};
 		95BDD6A3140B32FD00BF6B6B = {
 			isa = PBXGroup;
 			children = (
+				9566DCC9140B69E60030399A /* Logging */,
 				95BDD6B8140B32FD00BF6B6B /* timesuck */,
 				95BDD6D6140B32FE00BF6B6B /* timesuckTests */,
 				95BDD6B1140B32FD00BF6B6B /* Frameworks */,
@@ -263,6 +297,11 @@
 				95BDD6C0140B32FD00BF6B6B /* main.m in Sources */,
 				95BDD6C6140B32FE00BF6B6B /* timesuckAppDelegate.m in Sources */,
 				95BDD6CC140B32FE00BF6B6B /* timesuck.xcdatamodeld in Sources */,
+				9566DCD4140B69E60030399A /* DDAbstractDatabaseLogger.m in Sources */,
+				9566DCD5140B69E60030399A /* DDASLLogger.m in Sources */,
+				9566DCD6140B69E60030399A /* DDFileLogger.m in Sources */,
+				9566DCD7140B69E60030399A /* DDLog.m in Sources */,
+				9566DCD8140B69E60030399A /* DDTTYLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +484,7 @@
 				95BDD6E5140B32FE00BF6B6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95BDD6E6140B32FE00BF6B6B /* Build configuration list for PBXNativeTarget "timesuckTests" */ = {
 			isa = XCConfigurationList;
@@ -453,6 +493,7 @@
 				95BDD6E8140B32FE00BF6B6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

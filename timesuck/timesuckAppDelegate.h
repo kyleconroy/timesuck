@@ -7,9 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "DDFileLogger.h"
 
 @interface timesuckAppDelegate : NSObject <NSApplicationDelegate> {
 @private
+    DDFileLogger *fileLogger;
     NSWindow *window;
     NSPersistentStoreCoordinator *__persistentStoreCoordinator;
     NSManagedObjectModel *__managedObjectModel;
