@@ -19,6 +19,13 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    // Set last wake to now
+    lastWake = [[NSDate alloc] init];
+    
+    // Date Formatter
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setLocale:[NSLocale currentLocale]];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     // Setup logging
     fileLogger = [[DDFileLogger alloc] init];
@@ -30,16 +37,37 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     NSNotificationCenter *notCenter;
     
     notCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
-    [notCenter addObserver:self selector:@selector(notificationDidHappen:) name:nil object:nil];
+    [notCenter addObserver:self selector:@selector(systemDidSleep:) name:NSWorkspaceWillPowerOffNotification object:nil];
+    [notCenter addObserver:self selector:@selector(systemDidSleep:) name:NSWorkspaceScreensDidSleepNotification object:nil];
+    [notCenter addObserver:self selector:@selector(systemDidWake:) name:NSWorkspaceScreensDidWakeNotification object:nil];
 }
 
-- (void)notificationDidHappen:(NSNotification *)notification
+- (void)applicationDidActivate:(NSNotification *)notification
 {
-    NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
-    if (app == nil)
-        DDLogInfo(@"%@ %@", NSUserName(), notification.name);
-    else
-        DDLogInfo(@"%@ %@ %@", NSUserName(), notification.name, [app localizedName]);
+    //NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
+}
+
+- (void)applicationDidDeactivate:(NSNotification *)notification
+{
+    //NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
+}
+
+- (void)systemDidSleep:(NSNotification *)notification
+{
+    NSDate *now = [NSDate date];
+    DDLogInfo(@"%@ system osx active %@ %@ %i", NSUserName(),
+              [dateFormatter stringFromDate:lastWake],
+              [dateFormatter stringFromDate:now],
+              (int) [now timeIntervalSinceDate:lastWake]);
+    [lastWake release];
+}
+
+/**
+ * No need to log wake, that happens on shutdown
+ */
+- (void)systemDidWake:(NSNotification *)notification
+{
+    lastWake = [[NSDate alloc] init];
 }
 
 /**
@@ -219,6 +247,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     [__managedObjectContext release];
     [__persistentStoreCoordinator release];
     [__managedObjectModel release];
+    [lastWake release];
     [super dealloc];
 }
 

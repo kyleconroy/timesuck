@@ -13,6 +13,8 @@
 @private
     DDFileLogger *fileLogger;
     NSWindow *window;
+    NSDate *lastWake;
+    NSDateFormatter* dateFormatter;
     NSPersistentStoreCoordinator *__persistentStoreCoordinator;
     NSManagedObjectModel *__managedObjectModel;
     NSManagedObjectContext *__managedObjectContext;
