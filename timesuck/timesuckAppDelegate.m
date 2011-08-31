@@ -27,9 +27,13 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     [dateFormatter setLocale:[NSLocale currentLocale]];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
+    // Log Formatter
+    logFormatter = [[TimesuckLogFormatter alloc] init];
+    
     // Setup logging
     fileLogger = [[DDFileLogger alloc] init];
     fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+    [fileLogger setLogFormatter:logFormatter];
     
     [DDLog addLogger:fileLogger];
     
@@ -247,6 +251,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     [__persistentStoreCoordinator release];
     [__managedObjectModel release];
     [lastWake release];
+    [logFormatter release];
     [super dealloc];
 }
 

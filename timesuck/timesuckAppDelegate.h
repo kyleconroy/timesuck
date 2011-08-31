@@ -7,11 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "TimesuckLogFormatter.h"
 #import "DDFileLogger.h"
 
 @interface timesuckAppDelegate : NSObject <NSApplicationDelegate> {
 @private
     DDFileLogger *fileLogger;
+    TimesuckLogFormatter *logFormatter;
     NSWindow *window;
     NSDate *lastWake;
     NSDateFormatter* dateFormatter;
