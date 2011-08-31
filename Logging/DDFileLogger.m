@@ -142,8 +142,8 @@
 **/
 - (void)deleteOldLogFiles
 {
-	NSLogVerbose(@"DDLogFileManagerDefault: deleteOldLogFiles");
-	
+	NSLogVerbose(@"DDLogFileManagerDefault: Not deleting Old Log Files");
+    /**
 	NSArray *sortedLogFileInfos = [self sortedLogFileInfos];
 	
 	NSUInteger maxNumLogFiles = self.maximumNumberOfLogFiles;
@@ -189,6 +189,7 @@
 			[[NSFileManager defaultManager] removeItemAtPath:logFileInfo.filePath error:nil];
 		}
 	}
+     */
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

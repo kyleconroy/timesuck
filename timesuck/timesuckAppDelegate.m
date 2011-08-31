@@ -29,8 +29,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     // Setup logging
     fileLogger = [[DDFileLogger alloc] init];
-    fileLogger.rollingFrequency = 60 * 60 * 72; // 72 hour rolling
-    fileLogger.logFileManager.maximumNumberOfLogFiles = 100;
+    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
     
     [DDLog addLogger:fileLogger];
     
@@ -55,7 +54,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)systemDidSleep:(NSNotification *)notification
 {
     NSDate *now = [NSDate date];
-    DDLogInfo(@"%@ system osx active %@ %@ %i", NSUserName(),
+    DDLogInfo(@"%@\tsystem\tosx\tactive\t%@\t%@\t%i", NSUserName(),
               [dateFormatter stringFromDate:lastWake],
               [dateFormatter stringFromDate:now],
               (int) [now timeIntervalSinceDate:lastWake]);
