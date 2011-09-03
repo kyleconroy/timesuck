@@ -398,6 +398,16 @@
 }
 
 /**
+ * Generates a date UUID suitable for use in the log file's name.
+ * The result will be the .
+ **/
+- (NSString *)generateUnixTimeUUID
+{    
+    NSTimeInterval today = [[NSDate date] timeIntervalSince1970];
+    return [NSString stringWithFormat:@"%i", (int) today];
+}
+
+/**
  * Generates a new unique log file path, and creates the corresponding log file.
 **/
 - (NSString *)createNewLogFile
@@ -407,7 +417,7 @@
 	NSString *logsDirectory = [self logsDirectory];
 	do
 	{
-		NSString *fileName = [NSString stringWithFormat:@"log-%@.txt", [self generateShortUUID]];
+		NSString *fileName = [NSString stringWithFormat:@"log-%@.txt", [self generateUnixTimeUUID]];
 		
 		NSString *filePath = [logsDirectory stringByAppendingPathComponent:fileName];
 		
