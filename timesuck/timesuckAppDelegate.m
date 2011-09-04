@@ -57,6 +57,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)systemDidSleep:(NSNotification *)notification
 {
+    if (lastWake == nil) {
+        return;
+    }
+    
     NSDate *now = [NSDate date];
     DDLogInfo(@"%@\tsystem\tosx\tactive\t%@\t%@\t%i", NSUserName(),
               [dateFormatter stringFromDate:lastWake],
@@ -198,6 +202,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+    
+    [self systemDidSleep:nil];
 
     // Save changes in the application's managed object context before the application terminates.
 
