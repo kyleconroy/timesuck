@@ -16,7 +16,8 @@
     TimesuckLogFormatter *logFormatter;
     NSWindow *window;
     NSDate *lastWake;
-    NSDateFormatter* dateFormatter;
+    NSDateFormatter *dateFormatter;
+    NSMutableDictionary *applications;
     NSPersistentStoreCoordinator *__persistentStoreCoordinator;
     NSManagedObjectModel *__managedObjectModel;
     NSManagedObjectContext *__managedObjectContext;

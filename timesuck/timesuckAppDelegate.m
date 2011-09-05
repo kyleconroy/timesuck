@@ -37,22 +37,53 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     [DDLog addLogger:fileLogger];
     
+    //Initalize dictionary
+    applications = [[NSMutableDictionary alloc] init];
+    
     NSNotificationCenter *notCenter;
     
     notCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
-    [notCenter addObserver:self selector:@selector(systemDidSleep:) name:NSWorkspaceWillPowerOffNotification object:nil];
-    [notCenter addObserver:self selector:@selector(systemDidSleep:) name:NSWorkspaceScreensDidSleepNotification object:nil];
-    [notCenter addObserver:self selector:@selector(systemDidWake:) name:NSWorkspaceScreensDidWakeNotification object:nil];
+    
+    [notCenter addObserver:self selector:@selector(systemDidSleep:)
+               name:NSWorkspaceWillPowerOffNotification object:nil];
+    [notCenter addObserver:self selector:@selector(systemDidSleep:) 
+               name:NSWorkspaceScreensDidSleepNotification object:nil];
+    [notCenter addObserver:self selector:@selector(systemDidWake:) 
+               name:NSWorkspaceScreensDidWakeNotification object:nil];
+    [notCenter addObserver:self selector:@selector(applicationDidActivate:)
+               name:NSWorkspaceDidActivateApplicationNotification object:nil];
+    [notCenter addObserver:self selector:@selector(applicationDidDeactivate:)
+                      name:NSWorkspaceDidDeactivateApplicationNotification object:nil];
 }
 
 - (void)applicationDidActivate:(NSNotification *)notification
 {
-    //NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
+    NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
+    [applications setObject:[NSDate date] forKey:[app localizedName]];
+}
+
+- (void)deactivateApplication:(NSString *)localizedName
+{
+    NSDate *started = [applications objectForKey:localizedName];
+    
+    if (started == nil)
+        return;
+    
+    NSDate *now = [NSDate date];
+    DDLogInfo(@"%@\tapplication\t%@\tactive\t%@\t%@\t%i", NSUserName(),
+              localizedName,
+              [dateFormatter stringFromDate:started],
+              [dateFormatter stringFromDate:now],
+              (int) [now timeIntervalSinceDate:started]);
+    
+    // Unset the value
+    [applications removeObjectForKey:localizedName];    
 }
 
 - (void)applicationDidDeactivate:(NSNotification *)notification
 {
-    //NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
+    NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
+    [self deactivateApplication:[app localizedName]];
 }
 
 - (void)systemDidSleep:(NSNotification *)notification
@@ -203,6 +234,12 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
     
+    // Write out current applications log
+    for(id key in applications) {
+        [self deactivateApplication:key];
+    }
+    
+    // Write out system sleep
     [self systemDidSleep:nil];
 
     // Save changes in the application's managed object context before the application terminates.
@@ -257,6 +294,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     [__persistentStoreCoordinator release];
     [__managedObjectModel release];
     [lastWake release];
+    [applications release];
     [logFormatter release];
     [super dealloc];
 }
