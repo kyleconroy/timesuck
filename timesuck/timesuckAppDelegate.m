@@ -59,6 +59,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)applicationDidActivate:(NSNotification *)notification
 {
     NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
+    
+    if ([[app localizedName] isEqualToString:@"loginwindow"])
+        return;
+    
     [applications setObject:[NSDate date] forKey:[app localizedName]];
 }
 
