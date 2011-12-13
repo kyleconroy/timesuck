@@ -1,0 +1,10 @@
+{
+  "name": "Timesuck Web",
+  "version": "0.1",
+  "description": "Track the time you spend on websites",
+  "background_page": "html/background.html",
+  "permissions": [
+    "tabs",
+    "windows"
+  ]
+}
