@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		954DB2D8140E9E150021ED37 /* TimesuckLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 954DB2D7140E9E150021ED37 /* TimesuckLogFormatter.m */; };
-		9558000E1412C2BA006DE385 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9558000D1412C2BA006DE385 /* README.md */; };
 		9566DCED140B73810030399A /* clock.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9566DCEC140B73810030399A /* clock.icns */; };
 		9566DCF9140B73C50030399A /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9566DCF0140B73C50030399A /* DDAbstractDatabaseLogger.m */; };
 		9566DCFA140B73C50030399A /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9566DCF2140B73C50030399A /* DDASLLogger.m */; };
@@ -41,7 +40,6 @@
 /* Begin PBXFileReference section */
 		954DB2D6140E9E150021ED37 /* TimesuckLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimesuckLogFormatter.h; sourceTree = "<group>"; };
 		954DB2D7140E9E150021ED37 /* TimesuckLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimesuckLogFormatter.m; sourceTree = "<group>"; };
-		9558000D1412C2BA006DE385 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		9566DCEC140B73810030399A /* clock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = clock.icns; sourceTree = "<group>"; };
 		9566DCEF140B73C50030399A /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
 		9566DCF0140B73C50030399A /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 		95BDD6A3140B32FD00BF6B6B = {
 			isa = PBXGroup;
 			children = (
-				9558000D1412C2BA006DE385 /* README.md */,
 				9566DCEE140B73C50030399A /* Logging */,
 				95BDD6B8140B32FD00BF6B6B /* timesuck */,
 				95BDD6D6140B32FE00BF6B6B /* timesuckTests */,
@@ -270,7 +267,6 @@
 				95BDD6C3140B32FE00BF6B6B /* Credits.rtf in Resources */,
 				95BDD6C9140B32FE00BF6B6B /* MainMenu.xib in Resources */,
 				9566DCED140B73810030399A /* clock.icns in Resources */,
-				9558000E1412C2BA006DE385 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
