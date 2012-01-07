@@ -3,6 +3,7 @@
 #import "HTTPDataResponse.h"
 #import "DDNumber.h"
 #import "HTTPLogging.h"
+#import "timesuckAppDelegate.h"
 
 // Log levels : off, error, warn, info, verbose
 // Other flags: trace
@@ -50,9 +51,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 	HTTPLogTrace();
 	
 	if ([method isEqualToString:@"POST"] && [path isEqualToString:@"/log"])
-	{
-		HTTPLogVerbose(@"%@[%p]: postContentLength: %qu", THIS_FILE, self, requestContentLength);
-		
+	{		
 		NSString *postStr = nil;
 		
 		NSData *postData = [request body];
@@ -60,24 +59,52 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 		{
 			postStr = [[[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding] autorelease];
 		}
+        
+        NSMutableDictionary* data = [[NSMutableDictionary alloc] init];
+        
+        // Parse post body
+        NSArray *lines = [postStr componentsSeparatedByString:@"&"];
+        for(NSString *line in lines)
+        {
+            NSArray *lineElements = [line componentsSeparatedByString:@"="];
+            NSString *value = [lineElements objectAtIndex:1];
+            value = [value stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            [data setObject:value forKey:[lineElements objectAtIndex:0]];
+        }
 		
 		HTTPLogVerbose(@"%@[%p]: postStr: %@", THIS_FILE, self, postStr);
 		
 		// Result will be of the form "answer=..."
-		
-		int answer = [[postStr substringFromIndex:7] intValue];
-		
+				
 		NSData *response = nil;
-		if(answer == 10)
-		{
-			response = [@"<html><body>Correct<body></html>" dataUsingEncoding:NSUTF8StringEncoding];
+        
+		if(![data objectForKey:@"domain"])
+        {
+			response = [@"{'error': true, 'message': 'No value provided for key domain'}" dataUsingEncoding:NSUTF8StringEncoding];
+            return [[[HTTPDataResponse alloc] initWithData:response] autorelease];
 		}
-		else
-		{
-			response = [@"<html><body>Sorry - Try Again<body></html>" dataUsingEncoding:NSUTF8StringEncoding];
+        
+        if(![data objectForKey:@"start"])
+        {
+			response = [@"{'error': true, 'message': 'No value provided for key start'}" dataUsingEncoding:NSUTF8StringEncoding];
+            return [[[HTTPDataResponse alloc] initWithData:response] autorelease];
 		}
-		
-		return [[[HTTPDataResponse alloc] initWithData:response] autorelease];
+        
+        if(![data objectForKey:@"end"])
+        {
+			response = [@"{'error': true, 'message': 'No value provided for key end'}" dataUsingEncoding:NSUTF8StringEncoding];
+            return [[[HTTPDataResponse alloc] initWithData:response] autorelease];
+		}
+        
+        timesuckAppDelegate *appDelegate = (timesuckAppDelegate *)[NSApp delegate];
+                
+        [appDelegate logForType:@"website" 
+                          name:[data objectForKey:@"domain"]
+                         start:[appDelegate parseDate:[data objectForKey:@"start"]]
+                           end:[appDelegate parseDate:[data objectForKey:@"end"]]];
+        
+        response = [@"{'error': false, 'message': 'Success'}" dataUsingEncoding:NSUTF8StringEncoding];
+        return [[[HTTPDataResponse alloc] initWithData:response] autorelease];
 	}
 	
 	return [super httpResponseForMethod:method URI:path];

@@ -2,21 +2,7 @@
 currentWebsite = {};
 
 var formatDate = function(date) {
-  month = date.getUTCMonth() + 1;
-
-  if (month < 10) {
-    month = "0" + month;
-  }
-
-  day = date.getUTCDate();
-
-  if (day < 10) {
-    day = "0" + day;
-  } 
-
-  day = date.getUTCFullYear() + "-" + month + "-" + day;
-  time = date.getUTCHours() + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds(); 
-  return day + " " + time;
+  return date.getTime() / 1000;
 }
 
 
@@ -43,9 +29,6 @@ var changeCurrentUrl = function(tab) {
       data: currentWebsite,
       dataType: "json"
     })
-    .success(function() { console.log("second success"); })
-    .error(function(e) { console.log("error"); })
-    .complete(function() { console.log("complete"); });
   }
     
   currentWebsite = {

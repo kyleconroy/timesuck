@@ -77,6 +77,11 @@
                       name:NSWorkspaceDidDeactivateApplicationNotification object:nil];
 }
 
+- (NSDate *)parseDate:(NSString *)dateStr
+{
+    return [NSDate dateWithTimeIntervalSince1970:[dateStr doubleValue]];
+}
+
 - (FMDatabase*)initDatabase
 {
     /* Get Database Path */
@@ -284,8 +289,6 @@
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-    
-    [db close];
     
     // Write out current applications log
     for(id key in applications) {

@@ -14,10 +14,10 @@
 
 @interface timesuckAppDelegate : NSObject <NSApplicationDelegate> {
 @private
+    NSDateFormatter *dateFormatter;
     FMDatabase *db;
     NSWindow *window;
     NSDate *lastWake;
-    NSDateFormatter *dateFormatter;
     NSMutableDictionary *applications;
     NSPersistentStoreCoordinator *__persistentStoreCoordinator;
     NSManagedObjectModel *__managedObjectModel;
@@ -34,6 +34,7 @@
 - (IBAction)saveAction:sender;
 - (FMDatabase*)initDatabase;
 - (void)logForType:(NSString*)type name:(NSString*)name start:(NSDate *)start end:(NSDate *)end;
+- (NSDate *)parseDate:(NSString*)dateStr;
 
 
 @end
