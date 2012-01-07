@@ -20,9 +20,11 @@
     db = [self initDatabase];
     
     if (!db) {
-        //Uhoh
         return;
     }
+    
+    // Not sure if this is needed
+    [db retain];
     
     // Date Formatter
     dateFormatter = [[NSDateFormatter alloc] init];
@@ -65,14 +67,19 @@
     }
     
     /* Create Table */
-    [database executeUpdate:@"CREATE TABLE IF NOT EXISTS logs (type TEXT, name TEXT, start TEXT, end TEXT, duration INTEGER)"];
+    [database executeUpdate:@"CREATE TABLE IF NOT EXISTS logs (type TEXT, name TEXT, start TEXT, end TEXT, duration REAL)"];
     
     return database;
 }
 
 - (void)logForType:(NSString *)type name:(NSString *)name start:(NSDate *)start end:(NSDate *)end
-{
-    //[db executeUpdate:@"INSERT INTO logs VALUES (?,?,?,?,?)", [NSNumber numberWithInt:42]];
+{    
+    [db executeUpdate:@"INSERT INTO logs VALUES (?,?,?,?,?)", 
+                      type,
+                      name,
+                      [dateFormatter stringFromDate:start], 
+                      [dateFormatter stringFromDate:end],
+                      [NSNumber numberWithDouble:[end timeIntervalSinceDate:start]]];
 }
 
 - (void)applicationDidActivate:(NSNotification *)notification
@@ -94,6 +101,8 @@
     
     NSDate *now = [NSDate date];
     
+    [self logForType:@"application" name:localizedName start:started end:now];
+    
     // Unset the value
     [applications removeObjectForKey:localizedName];    
 }
@@ -111,6 +120,7 @@
     }
     
     NSDate *now = [NSDate date];
+    [self logForType:@"system" name:@"OS X" start:lastWake end:now];
     [lastWake release];
 }
 
