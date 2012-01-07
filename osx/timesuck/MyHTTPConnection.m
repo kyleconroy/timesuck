@@ -61,6 +61,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 		}
         
         NSMutableDictionary* data = [[NSMutableDictionary alloc] init];
+        [data autorelease];
         
         // Parse post body
         NSArray *lines = [postStr componentsSeparatedByString:@"&"];
