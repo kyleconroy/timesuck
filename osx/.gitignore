@@ -1,0 +1,11 @@
+.DS__Store
+*.swp
+*~.nib
+build/
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.project.xcworkspace
+*.xcuserdata
+*.mode1v3
+*.mode2v3
