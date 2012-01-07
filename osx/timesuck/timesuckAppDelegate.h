@@ -29,5 +29,7 @@
 
 - (IBAction)saveAction:sender;
 - (FMDatabase*)initDatabase;
+- (void)logForType:(NSString*)type name:(NSString*)name start:(NSDate *)start end:(NSDate *)end;
+
 
 @end

@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		9503A31014B82E2900AEE0A7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9503A30A14B82E2900AEE0A7 /* FMDatabase.m */; };
 		9503A31114B82E2900AEE0A7 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9503A30C14B82E2900AEE0A7 /* FMDatabaseAdditions.m */; };
-		9503A31214B82E2900AEE0A7 /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 9503A30D14B82E2900AEE0A7 /* fmdb.m */; };
 		9503A31314B82E2900AEE0A7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9503A30F14B82E2900AEE0A7 /* FMResultSet.m */; };
+		9503A31614B8317400AEE0A7 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9503A31514B8317400AEE0A7 /* libsqlite3.0.dylib */; };
 		9566DCED140B73810030399A /* clock.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9566DCEC140B73810030399A /* clock.icns */; };
 		95BDD6B3140B32FD00BF6B6B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BDD6B2140B32FD00BF6B6B /* Cocoa.framework */; };
 		95BDD6BD140B32FD00BF6B6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95BDD6BB140B32FD00BF6B6B /* InfoPlist.strings */; };
@@ -40,9 +40,9 @@
 		9503A30A14B82E2900AEE0A7 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		9503A30B14B82E2900AEE0A7 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
 		9503A30C14B82E2900AEE0A7 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		9503A30D14B82E2900AEE0A7 /* fmdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fmdb.m; sourceTree = "<group>"; };
 		9503A30E14B82E2900AEE0A7 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		9503A30F14B82E2900AEE0A7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		9503A31514B8317400AEE0A7 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		9566DCEC140B73810030399A /* clock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = clock.icns; sourceTree = "<group>"; };
 		95BDD6AE140B32FD00BF6B6B /* Timesuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timesuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BDD6B2140B32FD00BF6B6B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -71,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9503A31614B8317400AEE0A7 /* libsqlite3.0.dylib in Frameworks */,
 				95BDD6B3140B32FD00BF6B6B /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +90,7 @@
 		95BDD6A3140B32FD00BF6B6B = {
 			isa = PBXGroup;
 			children = (
+				9503A31514B8317400AEE0A7 /* libsqlite3.0.dylib */,
 				95BDD6B8140B32FD00BF6B6B /* timesuck */,
 				95BDD6D6140B32FE00BF6B6B /* timesuckTests */,
 				95BDD6B1140B32FD00BF6B6B /* Frameworks */,
@@ -131,7 +133,6 @@
 				9503A30A14B82E2900AEE0A7 /* FMDatabase.m */,
 				9503A30B14B82E2900AEE0A7 /* FMDatabaseAdditions.h */,
 				9503A30C14B82E2900AEE0A7 /* FMDatabaseAdditions.m */,
-				9503A30D14B82E2900AEE0A7 /* fmdb.m */,
 				9503A30E14B82E2900AEE0A7 /* FMResultSet.h */,
 				9503A30F14B82E2900AEE0A7 /* FMResultSet.m */,
 				95BDD6C4140B32FE00BF6B6B /* timesuckAppDelegate.h */,
@@ -179,9 +180,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		95BDD6AD140B32FD00BF6B6B /* timesuck */ = {
+		95BDD6AD140B32FD00BF6B6B /* Timesuck */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95BDD6E3140B32FE00BF6B6B /* Build configuration list for PBXNativeTarget "timesuck" */;
+			buildConfigurationList = 95BDD6E3140B32FE00BF6B6B /* Build configuration list for PBXNativeTarget "Timesuck" */;
 			buildPhases = (
 				95BDD6AA140B32FD00BF6B6B /* Sources */,
 				95BDD6AB140B32FD00BF6B6B /* Frameworks */,
@@ -191,7 +192,7 @@
 			);
 			dependencies = (
 			);
-			name = timesuck;
+			name = Timesuck;
 			productName = timesuck;
 			productReference = 95BDD6AE140B32FD00BF6B6B /* Timesuck.app */;
 			productType = "com.apple.product-type.application";
@@ -232,7 +233,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				95BDD6AD140B32FD00BF6B6B /* timesuck */,
+				95BDD6AD140B32FD00BF6B6B /* Timesuck */,
 				95BDD6D1140B32FE00BF6B6B /* timesuckTests */,
 			);
 		};
@@ -287,7 +288,6 @@
 				95BDD6CC140B32FE00BF6B6B /* timesuck.xcdatamodeld in Sources */,
 				9503A31014B82E2900AEE0A7 /* FMDatabase.m in Sources */,
 				9503A31114B82E2900AEE0A7 /* FMDatabaseAdditions.m in Sources */,
-				9503A31214B82E2900AEE0A7 /* fmdb.m in Sources */,
 				9503A31314B82E2900AEE0A7 /* FMResultSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,7 +305,7 @@
 /* Begin PBXTargetDependency section */
 		95BDD6D5140B32FE00BF6B6B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 95BDD6AD140B32FD00BF6B6B /* timesuck */;
+			target = 95BDD6AD140B32FD00BF6B6B /* Timesuck */;
 			targetProxy = 95BDD6D4140B32FE00BF6B6B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -464,7 +464,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95BDD6E3140B32FE00BF6B6B /* Build configuration list for PBXNativeTarget "timesuck" */ = {
+		95BDD6E3140B32FE00BF6B6B /* Build configuration list for PBXNativeTarget "Timesuck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95BDD6E4140B32FE00BF6B6B /* Debug */,

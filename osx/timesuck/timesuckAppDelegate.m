@@ -19,6 +19,11 @@
     
     db = [self initDatabase];
     
+    if (!db) {
+        //Uhoh
+        return;
+    }
+    
     // Date Formatter
     dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setLocale:[NSLocale currentLocale]];
@@ -45,8 +50,29 @@
 
 - (FMDatabase*)initDatabase
 {
-    NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-    return [FMDatabase databaseWithPath:@"/tmp/tmp.db"];
+    /* Get Database Path */
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+    NSString *executableName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
+    NSString *resolvedPath = [paths objectAtIndex:0];
+    resolvedPath = [resolvedPath stringByAppendingPathComponent:executableName];
+    resolvedPath = [resolvedPath stringByAppendingPathComponent:@"database.db"];
+    
+    /* Create Database */
+    FMDatabase *database = [FMDatabase databaseWithPath:resolvedPath];
+    if (![database open]) {
+        [database release];
+        return nil;
+    }
+    
+    /* Create Table */
+    [database executeUpdate:@"CREATE TABLE IF NOT EXISTS logs (type TEXT, name TEXT, start TEXT, end TEXT, duration INTEGER)"];
+    
+    return database;
+}
+
+- (void)logForType:(NSString *)type name:(NSString *)name start:(NSDate *)start end:(NSDate *)end
+{
+    //[db executeUpdate:@"INSERT INTO logs VALUES (?,?,?,?,?)", [NSNumber numberWithInt:42]];
 }
 
 - (void)applicationDidActivate:(NSNotification *)notification
@@ -222,6 +248,8 @@
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
     
+    [db close];
+    
     // Write out current applications log
     for(id key in applications) {
         [self deactivateApplication:key];
@@ -283,6 +311,7 @@
     [__managedObjectModel release];
     [lastWake release];
     [applications release];
+    [db release];
     [super dealloc];
 }
 
