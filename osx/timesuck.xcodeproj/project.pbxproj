@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		954DB2D8140E9E150021ED37 /* TimesuckLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 954DB2D7140E9E150021ED37 /* TimesuckLogFormatter.m */; };
+		9503A31014B82E2900AEE0A7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9503A30A14B82E2900AEE0A7 /* FMDatabase.m */; };
+		9503A31114B82E2900AEE0A7 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9503A30C14B82E2900AEE0A7 /* FMDatabaseAdditions.m */; };
+		9503A31214B82E2900AEE0A7 /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 9503A30D14B82E2900AEE0A7 /* fmdb.m */; };
+		9503A31314B82E2900AEE0A7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9503A30F14B82E2900AEE0A7 /* FMResultSet.m */; };
 		9566DCED140B73810030399A /* clock.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9566DCEC140B73810030399A /* clock.icns */; };
 		95BDD6B3140B32FD00BF6B6B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BDD6B2140B32FD00BF6B6B /* Cocoa.framework */; };
 		95BDD6BD140B32FD00BF6B6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95BDD6BB140B32FD00BF6B6B /* InfoPlist.strings */; };
@@ -33,8 +36,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		954DB2D6140E9E150021ED37 /* TimesuckLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimesuckLogFormatter.h; sourceTree = "<group>"; };
-		954DB2D7140E9E150021ED37 /* TimesuckLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimesuckLogFormatter.m; sourceTree = "<group>"; };
+		9503A30914B82E2900AEE0A7 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		9503A30A14B82E2900AEE0A7 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		9503A30B14B82E2900AEE0A7 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		9503A30C14B82E2900AEE0A7 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		9503A30D14B82E2900AEE0A7 /* fmdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fmdb.m; sourceTree = "<group>"; };
+		9503A30E14B82E2900AEE0A7 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		9503A30F14B82E2900AEE0A7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		9566DCEC140B73810030399A /* clock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = clock.icns; sourceTree = "<group>"; };
 		95BDD6AE140B32FD00BF6B6B /* Timesuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timesuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BDD6B2140B32FD00BF6B6B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -119,8 +127,13 @@
 		95BDD6B8140B32FD00BF6B6B /* timesuck */ = {
 			isa = PBXGroup;
 			children = (
-				954DB2D6140E9E150021ED37 /* TimesuckLogFormatter.h */,
-				954DB2D7140E9E150021ED37 /* TimesuckLogFormatter.m */,
+				9503A30914B82E2900AEE0A7 /* FMDatabase.h */,
+				9503A30A14B82E2900AEE0A7 /* FMDatabase.m */,
+				9503A30B14B82E2900AEE0A7 /* FMDatabaseAdditions.h */,
+				9503A30C14B82E2900AEE0A7 /* FMDatabaseAdditions.m */,
+				9503A30D14B82E2900AEE0A7 /* fmdb.m */,
+				9503A30E14B82E2900AEE0A7 /* FMResultSet.h */,
+				9503A30F14B82E2900AEE0A7 /* FMResultSet.m */,
 				95BDD6C4140B32FE00BF6B6B /* timesuckAppDelegate.h */,
 				95BDD6C5140B32FE00BF6B6B /* timesuckAppDelegate.m */,
 				95BDD6C7140B32FE00BF6B6B /* MainMenu.xib */,
@@ -272,7 +285,10 @@
 				95BDD6C0140B32FD00BF6B6B /* main.m in Sources */,
 				95BDD6C6140B32FE00BF6B6B /* timesuckAppDelegate.m in Sources */,
 				95BDD6CC140B32FE00BF6B6B /* timesuck.xcdatamodeld in Sources */,
-				954DB2D8140E9E150021ED37 /* TimesuckLogFormatter.m in Sources */,
+				9503A31014B82E2900AEE0A7 /* FMDatabase.m in Sources */,
+				9503A31114B82E2900AEE0A7 /* FMDatabaseAdditions.m in Sources */,
+				9503A31214B82E2900AEE0A7 /* fmdb.m in Sources */,
+				9503A31314B82E2900AEE0A7 /* FMResultSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

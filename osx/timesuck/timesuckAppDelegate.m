@@ -8,11 +8,6 @@
 
 #import "timesuckAppDelegate.h"
 
-#import "DDLog.h"
-#import "DDFileLogger.h"
-
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
-
 @implementation timesuckAppDelegate
 
 @synthesize window;
@@ -22,20 +17,12 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     // Set last wake to now
     lastWake = [[NSDate alloc] init];
     
+    db = [self initDatabase];
+    
     // Date Formatter
     dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setLocale:[NSLocale currentLocale]];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    
-    // Log Formatter
-    logFormatter = [[TimesuckLogFormatter alloc] init];
-    
-    // Setup logging
-    fileLogger = [[DDFileLogger alloc] init];
-    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
-    [fileLogger setLogFormatter:logFormatter];
-    
-    [DDLog addLogger:fileLogger];
     
     //Initalize dictionary
     applications = [[NSMutableDictionary alloc] init];
@@ -56,6 +43,12 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                       name:NSWorkspaceDidDeactivateApplicationNotification object:nil];
 }
 
+- (FMDatabase*)initDatabase
+{
+    NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+    return [FMDatabase databaseWithPath:@"/tmp/tmp.db"];
+}
+
 - (void)applicationDidActivate:(NSNotification *)notification
 {
     NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];
@@ -74,11 +67,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         return;
     
     NSDate *now = [NSDate date];
-    DDLogInfo(@"%@\tapplication\t%@\tactive\t%@\t%@\t%i", NSUserName(),
-              localizedName,
-              [dateFormatter stringFromDate:started],
-              [dateFormatter stringFromDate:now],
-              (int) [now timeIntervalSinceDate:started]);
     
     // Unset the value
     [applications removeObjectForKey:localizedName];    
@@ -97,10 +85,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     }
     
     NSDate *now = [NSDate date];
-    DDLogInfo(@"%@\tsystem\tosx\tactive\t%@\t%@\t%i", NSUserName(),
-              [dateFormatter stringFromDate:lastWake],
-              [dateFormatter stringFromDate:now],
-              (int) [now timeIntervalSinceDate:lastWake]);
     [lastWake release];
 }
 
@@ -299,7 +283,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     [__managedObjectModel release];
     [lastWake release];
     [applications release];
-    [logFormatter release];
     [super dealloc];
 }
 

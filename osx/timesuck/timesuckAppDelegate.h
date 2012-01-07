@@ -7,13 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "TimesuckLogFormatter.h"
-#import "DDFileLogger.h"
+#import "FMDatabase.h"
 
 @interface timesuckAppDelegate : NSObject <NSApplicationDelegate> {
 @private
-    DDFileLogger *fileLogger;
-    TimesuckLogFormatter *logFormatter;
+    FMDatabase *db;
     NSWindow *window;
     NSDate *lastWake;
     NSDateFormatter *dateFormatter;
@@ -30,5 +28,6 @@
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)saveAction:sender;
+- (FMDatabase*)initDatabase;
 
 @end
