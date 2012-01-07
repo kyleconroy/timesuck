@@ -9,6 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "FMDatabase.h"
 
+@class HTTPServer;
+
+
 @interface timesuckAppDelegate : NSObject <NSApplicationDelegate> {
 @private
     FMDatabase *db;
@@ -19,6 +22,7 @@
     NSPersistentStoreCoordinator *__persistentStoreCoordinator;
     NSManagedObjectModel *__managedObjectModel;
     NSManagedObjectContext *__managedObjectContext;
+    HTTPServer *httpServer;
 }
 
 @property (assign) IBOutlet NSWindow *window;

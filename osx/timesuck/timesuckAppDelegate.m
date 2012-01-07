@@ -7,6 +7,10 @@
 //
 
 #import "timesuckAppDelegate.h"
+#import "HTTPServer.h"
+#import "MyHTTPConnection.h"
+#import "DDLog.h"
+#import "DDTTYLogger.h"
 
 @implementation timesuckAppDelegate
 
@@ -25,6 +29,29 @@
     
     // Not sure if this is needed
     [db retain];
+    
+    // Start the HTTP server
+    // Configure our logging framework.
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    
+    // Initalize our http server
+    httpServer = [[HTTPServer alloc] init];
+    
+    // Tell the server to broadcast its presence via Bonjour.
+    [httpServer setType:@"_http._tcp."];
+    
+    // Normally there's no need to run our server on any specific port.
+    [httpServer setPort:9045];
+    
+    // We're going to extend the base HTTPConnection class with our MyHTTPConnection class.
+    // This allows us to do all kinds of customizations.
+    [httpServer setConnectionClass:[MyHTTPConnection class]];
+    
+    NSError *error = nil;
+    if(![httpServer start:&error])
+    {
+        //DDLogError(@"Error starting HTTP Server: %@", error);
+    }
     
     // Date Formatter
     dateFormatter = [[NSDateFormatter alloc] init];
