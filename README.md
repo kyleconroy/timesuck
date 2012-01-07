@@ -3,6 +3,7 @@
 Are you spending too much time on the computer? Find out with Timesuck. 
 
 Timesuck logs your
+
 - computer usage
 - application usage
 - website usage (via browser extensions)
@@ -47,7 +48,7 @@ which will show you your usage report for the day, which will look something lik
     ==================================================
     OS X                           1:53:07.929059
 
-## Installation
+## Download
 
 [Download Timesuck.app here](http://dl.dropbox.com/u/40773/Timesuck.zip)
 
