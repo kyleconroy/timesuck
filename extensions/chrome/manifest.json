@@ -5,6 +5,8 @@
   "background_page": "html/background.html",
   "permissions": [
     "tabs",
-    "windows"
+    "windows",
+    "<all_urls>",
+    "http://localhost:9045/log"
   ]
 }
