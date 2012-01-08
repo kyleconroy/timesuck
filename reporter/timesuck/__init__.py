@@ -7,7 +7,7 @@ from timesuck.reports import Report, ColumnReport
 
 LogEntry = namedtuple('LogEntry', 'user type name event start stop length')
 
-def split_daterange(start, stop):
+def split_daterange(start, stop, days=1):
     """Given two datetimess, return a list of (date, timedelta) tuples
     """
     try:
@@ -21,13 +21,13 @@ def split_daterange(start, stop):
         startdate = start
 
     while startdate < stopdate:
-        tomorrow = datetime.combine(startdate + timedelta(days=1), time()) 
+        tomorrow = datetime.combine(startdate + timedelta(days=days), time()) 
         if stop < tomorrow:
             yield (startdate, stop)
         else:
             yield (startdate, tomorrow)
 
-        startdate += timedelta(days=1)
+        startdate += timedelta(days=days)
         start = tomorrow
 
 def simpledate(value):
@@ -47,6 +47,7 @@ def main():
                         default="~/Library/Application Support/timesuck/database.db")
     parser.add_argument("--columns", action="store_true", default=False, 
                         help="Display the report in columns") 
+    parser.add_argument("-d", "--delta", type=int, default=1, help="Delta size")
     parser.add_argument("--total", action="store_true", default=False, 
                         help="Show an aggregate for the given range")
     parser.add_argument("-ml", "--minlength", type=int, default=2, 
@@ -64,7 +65,7 @@ def main():
     if args.total:
         ranges = [(args.start, args.end)]
     else:
-        ranges = split_daterange(args.start, args.end)
+        ranges = split_daterange(args.start, args.end, days=args.delta)
 
     report_class = Report
 

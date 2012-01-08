@@ -41,12 +41,12 @@ class Report(object):
         return result
 
     def entries(self):
-        return [(start, self.results(start, end)) for start, end in self.ranges]
+        return [(start, end, self.results(start, end)) for start, end in self.ranges]
 
     def show(self):
-        for (start_date, results) in self.entries():
+        for (start_date, end_date, results) in self.entries():
             print
-            print "Logs on {}".format(start_date) 
+            print "Logs on {} - {}".format(start_date, end_date)
             print "=" * 50
             print
             for (ltype, kinds) in results.iteritems():
@@ -82,7 +82,7 @@ class ColumnReport(Report):
             "system": {}, 
         }
 
-        for (start_date, results) in entries:
+        for (start_date, end_date, results) in entries:
             for (ltype, kinds) in results.iteritems():
                 if self.type and self.type != ltype:
                     continue
@@ -103,15 +103,15 @@ class ColumnReport(Report):
 
             names = sorted(names.keys())
 
-            print ''.join([n.ljust(15) for n in ["Date"] + names])
+            print ''.join([n.ljust(30) for n in ["Date"] + names])
 
-            for (start_date, _) in entries:
+            for (start_date, end_date, _) in entries:
                 results = []
 
                 for name in names:
                     results.append(rows[ltype][name].get(start_date, timedelta(seconds=0)))
 
                 row = [str(start_date)] + [str(x) for x in results]
-                print ''.join([n[:10].ljust(15) for n in row]) 
+                print ''.join([n.ljust(30) for n in row]) 
 
 
