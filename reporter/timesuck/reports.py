@@ -92,6 +92,9 @@ class ColumnReport(Report):
                     if name not in rows[ltype]:
                         rows[ltype][name] = {}
 
+                    if duration < self.minlength * 60:
+                        continue
+
                     rows[ltype][name][start_date] = timedelta(seconds=duration)
 
         for (ltype, names) in rows.iteritems():
