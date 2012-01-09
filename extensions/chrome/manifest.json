@@ -6,6 +6,7 @@
            "48": "images/icon48.png",
           "128": "images/icon128.png" },
   "background_page": "html/background.html",
+  "update_url": "https://raw.github.com/derferman/timesuck/master/extensions/chrome/update.xml",
   "permissions": [
     "tabs",
     "windows",
