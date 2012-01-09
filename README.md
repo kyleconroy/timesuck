@@ -50,8 +50,8 @@ which will show you your usage report for the day, which will look something lik
 
 ## Download
 
-[Download Timesuck.app here](http://dl.dropbox.com/u/40773/Timesuck.zip)
+- [Timesuck for OS X](https://github.com/downloads/derferman/timesuck/Timesuck.zip)
 
-## Supported Platforms
+## Browser Extensions
 
-Timesuck is currently only for OS X.
+- [Timesuck for Chrome](https://github.com/downloads/derferman/timesuck/timesuck_chrome_v0.1.crx)
