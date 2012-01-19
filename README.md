@@ -14,16 +14,27 @@ Almost all existing solutions send data back to an external website (I'm looking
 
 Timesuck stores all data locally in a SQLite3 database. No data is every sent to 3rd party servers.
 
+## Download
+
+- [Timesuck for OS X](https://github.com/downloads/derferman/timesuck/Timesuck.zip)
+
+## Browser Extensions
+
+- [Timesuck for Chrome](https://github.com/downloads/derferman/timesuck/timesuck_chrome_v0.1.crx)
+
 ## How do I see my usage?
 
 Install the included python command line tool
 
-    cd reporter
-    python setup.py install
+    $ pip install timesuck 
+
+or if you don't have `pip`
+
+    $ easy_install timesuck
 
 Now with the tool installed
 
-    timesuck
+    $ timesuck
 
 which will show you your usage report for the day, which will look something like this
 
@@ -48,10 +59,4 @@ which will show you your usage report for the day, which will look something lik
     ==================================================
     OS X                           1:53:07.929059
 
-## Download
 
-- [Timesuck for OS X](https://github.com/downloads/derferman/timesuck/Timesuck.zip)
-
-## Browser Extensions
-
-- [Timesuck for Chrome](https://github.com/downloads/derferman/timesuck/timesuck_chrome_v0.1.crx)
