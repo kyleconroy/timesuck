@@ -12,7 +12,7 @@ Timesuck logs your
 
 Almost all existing solutions send data back to an external website (I'm looking at you RescueTime). 
 
-Timesuck stores all data locally in a SQLite3 database. No data is every sent to 3rd party servers.
+Timesuck stores all data locally in a SQLite3 database. No data is ever sent to 3rd party servers.
 
 ## Download
 
