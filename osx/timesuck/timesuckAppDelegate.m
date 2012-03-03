@@ -99,7 +99,7 @@
     }
     
     /* Create Table */
-    [database executeUpdate:@"CREATE TABLE IF NOT EXISTS logs (type TEXT, name TEXT, start TEXT, end TEXT, duration REAL)"];
+    [database executeUpdate:@"CREATE TABLE IF NOT EXISTS logs (type TEXT, name TEXT, start REAL, end REAL, duration REAL)"];
     
     return database;
 }
@@ -109,8 +109,8 @@
     [db executeUpdate:@"INSERT INTO logs VALUES (?,?,?,?,?)", 
                       type,
                       name,
-                      [dateFormatter stringFromDate:start], 
-                      [dateFormatter stringFromDate:end],
+                      [NSNumber numberWithDouble:[start timeIntervalSince1970]],
+                      [NSNumber numberWithDouble:[end timeIntervalSince1970]],
                       [NSNumber numberWithDouble:[end timeIntervalSinceDate:start]]];
 }
 

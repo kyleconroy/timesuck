@@ -387,6 +387,9 @@
 /* Begin PBXProject section */
 		95BDD6A5140B32FD00BF6B6B /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 95BDD6A8140B32FD00BF6B6B /* Build configuration list for PBXProject "timesuck" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
