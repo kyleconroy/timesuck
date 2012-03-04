@@ -34,6 +34,7 @@
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
+- (IBAction)showWindow:sender;
 - (IBAction)saveAction:sender;
 - (FMDatabase*)initDatabase;
 - (void)logForType:(NSString*)type name:(NSString*)name start:(NSDate *)start end:(NSDate *)end;

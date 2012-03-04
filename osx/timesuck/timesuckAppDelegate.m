@@ -19,6 +19,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"WebKitDeveloperExtras"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     // Set last wake to now
     lastWake = [[NSDate alloc] init];
     
@@ -27,15 +30,6 @@
     if (!db) {
         return;
     }
-    
-    //Setup the webview?
-    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"graph" 
-                                                         ofType:@"html"
-                                                    inDirectory:@"web"];
-    NSLog(@"%@", filePath);
-    NSURL* fileURL = [NSURL fileURLWithPath:filePath];
-    NSURLRequest* request = [NSURLRequest requestWithURL:fileURL];
-    [[webView mainFrame] loadRequest:request];
     
     // Not sure if this is needed
     [db retain];
@@ -85,6 +79,13 @@
                name:NSWorkspaceDidActivateApplicationNotification object:nil];
     [notCenter addObserver:self selector:@selector(applicationDidDeactivate:)
                       name:NSWorkspaceDidDeactivateApplicationNotification object:nil];
+    
+    //Setup the webview?    
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"graph" 
+                                                         ofType:@"html"];
+    NSURL* fileURL = [NSURL fileURLWithPath:filePath];
+    NSURLRequest* request = [NSURLRequest requestWithURL:fileURL];
+    [[webView mainFrame] loadRequest:request];
 }
 
 - (NSDate *)parseDate:(NSString *)dateStr
@@ -139,7 +140,7 @@
     while ([s next]) {
         NSMutableDictionary *point = [[NSMutableDictionary alloc] init];
         [point setObject:[NSNumber numberWithDouble:[s doubleForColumnIndex:0]] forKey:@"x"];
-        [point setObject:[NSNumber numberWithDouble:[s doubleForColumnIndex:1]] forKey:@"y"];
+        [point setObject:[NSNumber numberWithDouble:[s doubleForColumnIndex:1] / 3600] forKey:@"y"];
         [data addObject:point];
     }
     
@@ -180,6 +181,10 @@
     
     // Unset the value
     [applications removeObjectForKey:localizedName];    
+}
+
+-(IBAction)showWindow:(id)sender{  
+    [window makeKeyAndOrderFront:nil];  
 }
 
 - (void)applicationDidDeactivate:(NSNotification *)notification
