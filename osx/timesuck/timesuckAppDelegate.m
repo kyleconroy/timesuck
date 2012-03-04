@@ -138,9 +138,9 @@
     NSMutableArray *data = [[NSMutableArray alloc] init];
     
     while ([s next]) {
-        NSMutableDictionary *point = [[NSMutableDictionary alloc] init];
-        [point setObject:[NSNumber numberWithDouble:[s doubleForColumnIndex:0]] forKey:@"x"];
-        [point setObject:[NSNumber numberWithDouble:[s doubleForColumnIndex:1] / 3600] forKey:@"y"];
+        NSMutableArray *point = [[NSMutableArray alloc] init];
+        [point addObject:[NSNumber numberWithDouble:[s doubleForColumnIndex:0] * 1000]];
+        [point addObject:[NSNumber numberWithDouble:[s doubleForColumnIndex:1] / 3600]];
         [data addObject:point];
     }
     

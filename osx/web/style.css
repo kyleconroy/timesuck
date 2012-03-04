@@ -6,20 +6,8 @@ body {
 h1 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
 }
-#container {
-  max-width: 780px;
-  padding: 0 10px;
-  margin: 0 auto;
-}
-#chart_container {
-  position: relative;
-  font-family: Arial, Helvetica, sans-serif;
-}
-#chart, #y_axis {
-  display: inline-block;
-  vertical-align: top;
-}
-#y_axis {
-  width: 40px;
+#chart {
+  width: 100%;
+  height: 400px;
 }
 
