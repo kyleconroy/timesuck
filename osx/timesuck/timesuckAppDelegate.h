@@ -35,6 +35,7 @@
 - (FMDatabase*)initDatabase;
 - (void)logForType:(NSString*)type name:(NSString*)name start:(NSDate *)start end:(NSDate *)end;
 - (NSDate *)parseDate:(NSString*)dateStr;
+- (NSString*)graphJson;
 
 
 @end

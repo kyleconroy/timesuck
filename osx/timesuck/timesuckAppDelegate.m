@@ -114,6 +114,38 @@
                       [NSNumber numberWithDouble:[end timeIntervalSinceDate:start]]];
 }
 
+- (NSString*)graphJson
+{
+    NSString *query = @"SELECT strftime('%s', date(start, 'unixepoch', 'localtime')), sum(duration) "
+                      "FROM logs WHERE start > strftime('%s', '2012-02-01') "
+                      "AND type != 'system' AND name != 'Google Chrome' "
+                      "GROUP BY date(start, 'unixepoch', 'localtime')";
+    
+    FMResultSet *s = [db executeQuery:query];
+    NSMutableDictionary *payload = [[NSMutableDictionary alloc] init];
+    NSMutableArray *data = [[NSMutableArray alloc] init];
+    
+    while ([s next]) {
+        NSMutableDictionary *point = [[NSMutableDictionary alloc] init];
+        [point setObject:[NSNumber numberWithDouble:[s doubleForColumnIndex:0]] forKey:@"x"];
+        [point setObject:[NSNumber numberWithDouble:[s doubleForColumnIndex:1]] forKey:@"y"];
+        [data addObject:point];
+    }
+    
+    [payload setObject:data forKey:@"data"];
+    
+    NSError *error; 
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:payload 
+                                                       options:0
+                                                         error:&error];
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+        return nil;
+    } else {
+        return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+}
+
 - (void)applicationDidActivate:(NSNotification *)notification
 {
     NSRunningApplication *app = [[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"];

@@ -107,6 +107,14 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
         response = [@"{'error': false, 'message': 'Success'}" dataUsingEncoding:NSUTF8StringEncoding];
         return [[[HTTPDataResponse alloc] initWithData:response] autorelease];
 	}
+    
+    if ([method isEqualToString:@"GET"] && [path isEqualToString:@"/graph"])
+	{
+        timesuckAppDelegate *appDelegate = (timesuckAppDelegate *)[NSApp delegate];
+        NSData *response = nil;
+        response = [[appDelegate graphJson] dataUsingEncoding:NSUTF8StringEncoding];
+        return [[[HTTPDataResponse alloc] initWithData:response] autorelease];
+    }
 	
 	return [super httpResponseForMethod:method URI:path];
 }
