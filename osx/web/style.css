@@ -15,14 +15,11 @@ h1 {
   position: relative;
   font-family: Arial, Helvetica, sans-serif;
 }
-#chart {
-  position: relative;
-  left: 40px;
+#chart, #y_axis {
+  display: inline-block;
+  vertical-align: top;
 }
 #y_axis {
-  position: absolute;
-  top: 0;
-  bottom: 0;
   width: 40px;
 }
 

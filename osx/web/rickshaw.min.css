@@ -40,6 +40,7 @@
 	color: white;
 	border: 1px solid rgba(0, 0, 0, 0.4);
 	margin-left: 1em;
+	margin-right: 1em;
 	margin-top: -1em;
 	white-space: nowrap;
 }
@@ -47,13 +48,23 @@
 	opacity: 1;
 	background: rgba(0, 0, 0, 0.8);
 }
-.rickshaw_graph .detail .item:before {
+
+.rickshaw_graph .detail .pright:before {
 	content: "\25c2";
 	position: absolute;
 	left: -0.5em;
 	color: rgba(0, 0, 0, 0.7);
 	width: 0;
 }
+
+.rickshaw_graph .detail .pleft:after {
+	content: "\25B8";
+	position: absolute;
+	right: 0.2em;
+	color: rgba(0, 0, 0, 0.7);
+	width: 0;
+}
+
 .rickshaw_graph .detail .dot {
 	width: 5px;
 	height: 5px;
