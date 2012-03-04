@@ -16,10 +16,14 @@
 @interface timesuckAppDelegate : NSObject <NSApplicationDelegate> {
 @private
     NSDateFormatter *dateFormatter;
+    NSDateFormatter *intervalFormatter;
     FMDatabase *db;
+    NSString *state;
     IBOutlet id webView;
 	IBOutlet NSWindow *window;
+    IBOutlet NSTextField *heading;
     NSDate *lastWake;
+    NSDate *selectedDate;
     NSMutableDictionary *applications;
     NSPersistentStoreCoordinator *__persistentStoreCoordinator;
     NSManagedObjectModel *__managedObjectModel;
@@ -36,10 +40,13 @@
 
 - (IBAction)showWindow:sender;
 - (IBAction)saveAction:sender;
+- (IBAction)chnageDate:sender;
+- (IBAction)changeInterval:sender;
 - (FMDatabase*)initDatabase;
 - (void)logForType:(NSString*)type name:(NSString*)name start:(NSDate *)start end:(NSDate *)end;
 - (NSDate *)parseDate:(NSString*)dateStr;
+- (NSDate*)previousDate;
+- (NSDate*)nextDate;
 - (NSString*)graphJson;
-
 
 @end

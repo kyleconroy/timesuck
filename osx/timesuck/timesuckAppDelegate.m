@@ -24,6 +24,12 @@
     
     // Set last wake to now
     lastWake = [[NSDate alloc] init];
+    selectedDate = [[NSDate alloc] init];
+    
+    intervalFormatter = [[NSDateFormatter alloc] init];
+    [intervalFormatter setDateFormat:@"MMMM y"];
+    state = @"Month";
+    [heading setStringValue:[intervalFormatter stringFromDate:selectedDate]];
     
     db = [self initDatabase];
     
@@ -183,8 +189,93 @@
     [applications removeObjectForKey:localizedName];    
 }
 
--(IBAction)showWindow:(id)sender{  
+-(IBAction)showWindow:(id)sender
+{
     [window makeKeyAndOrderFront:nil];  
+}
+
+-(IBAction)changeInterval:(id)sender
+{
+    state = [sender labelForSegment:[sender selectedSegment]];
+    [state retain];
+    
+    if ([state isEqualToString:@"Year"]) {
+        [intervalFormatter setDateFormat:@"y"];
+    } else if ([state isEqualToString:@"Month"]) {
+        [intervalFormatter setDateFormat:@"MMMM y"];
+    } else if ([state isEqualToString:@"Day"]) {
+        [intervalFormatter setDateFormat:@"EEEE MMMM dd, y"];
+    }
+    
+    [heading setStringValue:[intervalFormatter stringFromDate:selectedDate]];
+}
+
+-(IBAction)changeDate:(id)sender
+{
+    NSString *action = [sender labelForSegment:[sender selectedSegment]];
+    NSDate *newDate;
+    
+    if ([action isEqualToString:@"Today"]) {
+        newDate = [[NSDate alloc] init];
+    } else if ([action isEqualToString:@"◀"]) {
+        newDate = [self previousDate];
+    } else if ([action isEqualToString:@"▶"]) {
+        newDate = [self nextDate];
+    }
+    
+    [newDate retain];
+    [selectedDate release];
+    selectedDate = newDate;
+    
+    [heading setStringValue:[intervalFormatter stringFromDate:selectedDate]];
+}
+
+- (NSDate*)previousDate
+{   
+    NSDateComponents *components = [[[NSDateComponents alloc] init] autorelease];
+    
+    if ([state isEqualToString:@"Year"]) {
+        components.year = -1;
+        return [[NSCalendar currentCalendar] dateByAddingComponents:components 
+                                                             toDate:selectedDate
+                                                            options:0];
+    }
+    
+    if ([state isEqualToString:@"Month"]) {
+        components.month = -1;
+        return [[NSCalendar currentCalendar] dateByAddingComponents:components 
+                                                             toDate:selectedDate
+                                                            options:0];
+    }
+    
+    components.day = -1;
+    return [[NSCalendar currentCalendar] dateByAddingComponents:components 
+                                                         toDate:selectedDate
+                                                        options:0];
+}
+
+- (NSDate*)nextDate
+{   
+    NSDateComponents *components = [[[NSDateComponents alloc] init] autorelease];
+    
+    if ([state isEqualToString:@"Year"]) {
+        components.year = 1;
+        return [[NSCalendar currentCalendar] dateByAddingComponents:components 
+                                             toDate:selectedDate
+                                             options:0];
+    }
+    
+    if ([state isEqualToString:@"Month"]) {
+        components.month = 1;
+        return [[NSCalendar currentCalendar] dateByAddingComponents:components 
+                                             toDate:selectedDate
+                                             options:0];
+    }
+    
+    components.day = 1;
+    return [[NSCalendar currentCalendar] dateByAddingComponents:components 
+                                         toDate:selectedDate
+                                         options:0];
 }
 
 - (void)applicationDidDeactivate:(NSNotification *)notification
@@ -397,7 +488,10 @@
     [__managedObjectContext release];
     [__persistentStoreCoordinator release];
     [__managedObjectModel release];
+    [dateFormatter release];
+    [intervalFormatter release];
     [lastWake release];
+    [selectedDate release];
     [applications release];
     [db release];
     [super dealloc];
