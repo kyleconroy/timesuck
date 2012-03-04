@@ -15,6 +15,7 @@
 @implementation timesuckAppDelegate
 
 @synthesize window;
+@synthesize webView;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -26,6 +27,15 @@
     if (!db) {
         return;
     }
+    
+    //Setup the webview?
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"graph" 
+                                                         ofType:@"html"
+                                                    inDirectory:@"web"];
+    NSLog(@"%@", filePath);
+    NSURL* fileURL = [NSURL fileURLWithPath:filePath];
+    NSURLRequest* request = [NSURLRequest requestWithURL:fileURL];
+    [[webView mainFrame] loadRequest:request];
     
     // Not sure if this is needed
     [db retain];
@@ -116,6 +126,7 @@
 
 - (NSString*)graphJson
 {
+    // TODO make this query configurable
     NSString *query = @"SELECT strftime('%s', date(start, 'unixepoch', 'localtime')), sum(duration) "
                       "FROM logs WHERE start > strftime('%s', '2012-02-01') "
                       "AND type != 'system' AND name != 'Google Chrome' "

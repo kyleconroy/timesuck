@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "WebKit/WebKit.h"
 #import "FMDatabase.h"
 
 @class HTTPServer;
@@ -16,7 +17,8 @@
 @private
     NSDateFormatter *dateFormatter;
     FMDatabase *db;
-    NSWindow *window;
+    IBOutlet id webView;
+	IBOutlet NSWindow *window;
     NSDate *lastWake;
     NSMutableDictionary *applications;
     NSPersistentStoreCoordinator *__persistentStoreCoordinator;
@@ -26,6 +28,7 @@
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet WebView *webView;
 
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

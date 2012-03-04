@@ -35,6 +35,15 @@
 		9520BF8D14B84ACD000FFB06 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9520BF8C14B84ACD000FFB06 /* Security.framework */; };
 		9566DCED140B73810030399A /* clock.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9566DCEC140B73810030399A /* clock.icns */; };
 		9577B7AB14B84D3C0012936D /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9577B7AA14B84D3C0012936D /* MyHTTPConnection.m */; };
+		95B2579215035F9300E039F2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B2579115035F9300E039F2 /* WebKit.framework */; };
+		95B2579D1503618600E039F2 /* .graph.html.swp in Resources */ = {isa = PBXBuildFile; fileRef = 95B257951503618600E039F2 /* .graph.html.swp */; };
+		95B2579E1503618600E039F2 /* d3.min.js in Sources */ = {isa = PBXBuildFile; fileRef = 95B257961503618600E039F2 /* d3.min.js */; };
+		95B2579F1503618600E039F2 /* graph.html in Resources */ = {isa = PBXBuildFile; fileRef = 95B257971503618600E039F2 /* graph.html */; };
+		95B257A01503618600E039F2 /* graph.js in Sources */ = {isa = PBXBuildFile; fileRef = 95B257981503618600E039F2 /* graph.js */; };
+		95B257A11503618600E039F2 /* jquery-1.7.1.min.js in Sources */ = {isa = PBXBuildFile; fileRef = 95B257991503618600E039F2 /* jquery-1.7.1.min.js */; };
+		95B257A21503618600E039F2 /* rickshaw.min.css in Resources */ = {isa = PBXBuildFile; fileRef = 95B2579A1503618600E039F2 /* rickshaw.min.css */; };
+		95B257A31503618600E039F2 /* rickshaw.min.js in Sources */ = {isa = PBXBuildFile; fileRef = 95B2579B1503618600E039F2 /* rickshaw.min.js */; };
+		95B257A41503618600E039F2 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 95B2579C1503618600E039F2 /* style.css */; };
 		95BDD6B3140B32FD00BF6B6B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BDD6B2140B32FD00BF6B6B /* Cocoa.framework */; };
 		95BDD6BD140B32FD00BF6B6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95BDD6BB140B32FD00BF6B6B /* InfoPlist.strings */; };
 		95BDD6C0140B32FD00BF6B6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDD6BF140B32FD00BF6B6B /* main.m */; };
@@ -112,6 +121,15 @@
 		9566DCEC140B73810030399A /* clock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = clock.icns; sourceTree = "<group>"; };
 		9577B7A914B84D3C0012936D /* MyHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHTTPConnection.h; sourceTree = "<group>"; };
 		9577B7AA14B84D3C0012936D /* MyHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHTTPConnection.m; sourceTree = "<group>"; };
+		95B2579115035F9300E039F2 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		95B257951503618600E039F2 /* .graph.html.swp */ = {isa = PBXFileReference; lastKnownFileType = file; path = .graph.html.swp; sourceTree = "<group>"; };
+		95B257961503618600E039F2 /* d3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.min.js; sourceTree = "<group>"; };
+		95B257971503618600E039F2 /* graph.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = graph.html; sourceTree = "<group>"; };
+		95B257981503618600E039F2 /* graph.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = graph.js; sourceTree = "<group>"; };
+		95B257991503618600E039F2 /* jquery-1.7.1.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.7.1.min.js"; sourceTree = "<group>"; };
+		95B2579A1503618600E039F2 /* rickshaw.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = rickshaw.min.css; sourceTree = "<group>"; };
+		95B2579B1503618600E039F2 /* rickshaw.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = rickshaw.min.js; sourceTree = "<group>"; };
+		95B2579C1503618600E039F2 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		95BDD6AE140B32FD00BF6B6B /* Timesuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timesuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BDD6B2140B32FD00BF6B6B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		95BDD6B5140B32FD00BF6B6B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -139,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95B2579215035F9300E039F2 /* WebKit.framework in Frameworks */,
 				9520BF8D14B84ACD000FFB06 /* Security.framework in Frameworks */,
 				9503A31614B8317400AEE0A7 /* libsqlite3.0.dylib in Frameworks */,
 				95BDD6B3140B32FD00BF6B6B /* Cocoa.framework in Frameworks */,
@@ -252,9 +271,26 @@
 			path = Vendor/FMdb;
 			sourceTree = "<group>";
 		};
+		95B257941503618600E039F2 /* web */ = {
+			isa = PBXGroup;
+			children = (
+				95B257951503618600E039F2 /* .graph.html.swp */,
+				95B257961503618600E039F2 /* d3.min.js */,
+				95B257971503618600E039F2 /* graph.html */,
+				95B257981503618600E039F2 /* graph.js */,
+				95B257991503618600E039F2 /* jquery-1.7.1.min.js */,
+				95B2579A1503618600E039F2 /* rickshaw.min.css */,
+				95B2579B1503618600E039F2 /* rickshaw.min.js */,
+				95B2579C1503618600E039F2 /* style.css */,
+			);
+			path = web;
+			sourceTree = "<group>";
+		};
 		95BDD6A3140B32FD00BF6B6B = {
 			isa = PBXGroup;
 			children = (
+				95B257941503618600E039F2 /* web */,
+				95B2579115035F9300E039F2 /* WebKit.framework */,
 				9520BF8C14B84ACD000FFB06 /* Security.framework */,
 				9503A31514B8317400AEE0A7 /* libsqlite3.0.dylib */,
 				9520BF3E14B84A81000FFB06 /* CocoaAsyncSocket */,
@@ -419,6 +455,10 @@
 				9566DCED140B73810030399A /* clock.icns in Resources */,
 				9520BF7414B84A81000FFB06 /* About.txt in Resources */,
 				9520BF8314B84A81000FFB06 /* About.txt in Resources */,
+				95B2579D1503618600E039F2 /* .graph.html.swp in Resources */,
+				95B2579F1503618600E039F2 /* graph.html in Resources */,
+				95B257A21503618600E039F2 /* rickshaw.min.css in Resources */,
+				95B257A41503618600E039F2 /* style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +520,10 @@
 				9520BF8A14B84A81000FFB06 /* FMDatabaseAdditions.m in Sources */,
 				9520BF8B14B84A81000FFB06 /* FMResultSet.m in Sources */,
 				9577B7AB14B84D3C0012936D /* MyHTTPConnection.m in Sources */,
+				95B2579E1503618600E039F2 /* d3.min.js in Sources */,
+				95B257A01503618600E039F2 /* graph.js in Sources */,
+				95B257A11503618600E039F2 /* jquery-1.7.1.min.js in Sources */,
+				95B257A31503618600E039F2 /* rickshaw.min.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

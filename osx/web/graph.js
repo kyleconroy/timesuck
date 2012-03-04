@@ -1,4 +1,4 @@
-$.getJSON("/graph", function(d) {
+$.getJSON("http://localhost:9045/graph", function(d) {
 
   var graph = new Rickshaw.Graph( {
     element: document.querySelector("#chart"),
