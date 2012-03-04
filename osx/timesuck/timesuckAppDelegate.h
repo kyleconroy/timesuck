@@ -40,7 +40,7 @@
 
 - (IBAction)showWindow:sender;
 - (IBAction)saveAction:sender;
-- (IBAction)chnageDate:sender;
+- (IBAction)changeDate:sender;
 - (IBAction)changeInterval:sender;
 - (FMDatabase*)initDatabase;
 - (void)logForType:(NSString*)type name:(NSString*)name start:(NSDate *)start end:(NSDate *)end;

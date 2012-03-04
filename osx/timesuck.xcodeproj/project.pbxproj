@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9503A31614B8317400AEE0A7 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9503A31514B8317400AEE0A7 /* libsqlite3.0.dylib */; };
-		9520BF7414B84A81000FFB06 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9520BF3F14B84A81000FFB06 /* About.txt */; };
 		9520BF7514B84A81000FFB06 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF4114B84A81000FFB06 /* GCDAsyncSocket.m */; };
 		9520BF7614B84A81000FFB06 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF4514B84A81000FFB06 /* DDData.m */; };
 		9520BF7714B84A81000FFB06 /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF4714B84A81000FFB06 /* DDNumber.m */; };
@@ -23,7 +22,6 @@
 		9520BF8014B84A81000FFB06 /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF5C14B84A81000FFB06 /* HTTPFileResponse.m */; };
 		9520BF8114B84A81000FFB06 /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF5E14B84A81000FFB06 /* HTTPRedirectResponse.m */; };
 		9520BF8214B84A81000FFB06 /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF6014B84A81000FFB06 /* WebSocket.m */; };
-		9520BF8314B84A81000FFB06 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9520BF6214B84A81000FFB06 /* About.txt */; };
 		9520BF8414B84A81000FFB06 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF6414B84A81000FFB06 /* DDAbstractDatabaseLogger.m */; };
 		9520BF8514B84A81000FFB06 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF6614B84A81000FFB06 /* DDASLLogger.m */; };
 		9520BF8614B84A81000FFB06 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520BF6814B84A81000FFB06 /* DDFileLogger.m */; };
@@ -35,14 +33,10 @@
 		9520BF8D14B84ACD000FFB06 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9520BF8C14B84ACD000FFB06 /* Security.framework */; };
 		9566DCED140B73810030399A /* clock.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9566DCEC140B73810030399A /* clock.icns */; };
 		9577B7AB14B84D3C0012936D /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9577B7AA14B84D3C0012936D /* MyHTTPConnection.m */; };
-		95B0131F15038E1200C4A42F /* jquery.flot.js in Sources */ = {isa = PBXBuildFile; fileRef = 95B0131E15038E1200C4A42F /* jquery.flot.js */; };
 		95B0132015038E2400C4A42F /* jquery.flot.js in Resources */ = {isa = PBXBuildFile; fileRef = 95B0131E15038E1200C4A42F /* jquery.flot.js */; };
-		95B013241503957600C4A42F /* jquery.flot.resize.js in Sources */ = {isa = PBXBuildFile; fileRef = 95B013231503957600C4A42F /* jquery.flot.resize.js */; };
 		95B013251503959A00C4A42F /* jquery.flot.resize.js in Resources */ = {isa = PBXBuildFile; fileRef = 95B013231503957600C4A42F /* jquery.flot.resize.js */; };
 		95B2579215035F9300E039F2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B2579115035F9300E039F2 /* WebKit.framework */; };
 		95B2579F1503618600E039F2 /* graph.html in Resources */ = {isa = PBXBuildFile; fileRef = 95B257971503618600E039F2 /* graph.html */; };
-		95B257A01503618600E039F2 /* graph.js in Sources */ = {isa = PBXBuildFile; fileRef = 95B257981503618600E039F2 /* graph.js */; };
-		95B257A11503618600E039F2 /* jquery-1.7.1.min.js in Sources */ = {isa = PBXBuildFile; fileRef = 95B257991503618600E039F2 /* jquery-1.7.1.min.js */; };
 		95B257A41503618600E039F2 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 95B2579C1503618600E039F2 /* style.css */; };
 		95B257A615036C2A00E039F2 /* graph.js in Resources */ = {isa = PBXBuildFile; fileRef = 95B257981503618600E039F2 /* graph.js */; };
 		95B257A715036C2A00E039F2 /* jquery-1.7.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 95B257991503618600E039F2 /* jquery-1.7.1.min.js */; };
@@ -455,8 +449,6 @@
 				95BDD6C3140B32FE00BF6B6B /* Credits.rtf in Resources */,
 				95BDD6C9140B32FE00BF6B6B /* MainMenu.xib in Resources */,
 				9566DCED140B73810030399A /* clock.icns in Resources */,
-				9520BF7414B84A81000FFB06 /* About.txt in Resources */,
-				9520BF8314B84A81000FFB06 /* About.txt in Resources */,
 				95B2579F1503618600E039F2 /* graph.html in Resources */,
 				95B257A41503618600E039F2 /* style.css in Resources */,
 			);
@@ -520,10 +512,6 @@
 				9520BF8A14B84A81000FFB06 /* FMDatabaseAdditions.m in Sources */,
 				9520BF8B14B84A81000FFB06 /* FMResultSet.m in Sources */,
 				9577B7AB14B84D3C0012936D /* MyHTTPConnection.m in Sources */,
-				95B257A01503618600E039F2 /* graph.js in Sources */,
-				95B257A11503618600E039F2 /* jquery-1.7.1.min.js in Sources */,
-				95B0131F15038E1200C4A42F /* jquery.flot.js in Sources */,
-				95B013241503957600C4A42F /* jquery.flot.resize.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
