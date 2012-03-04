@@ -3,11 +3,12 @@ body {
   margin: 0;
   font-size: 100%;
 }
-h1 {
+h1, #chart { 
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
 }
 #chart {
-  width: 100%;
+  width: 96%;
+  margin: 2%;
   height: 400px;
 }
 
