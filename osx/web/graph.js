@@ -8,22 +8,25 @@ $.getJSON("http://localhost:9045/graph", function(d) {
         }
         return val;
       },
-      mode: "time",
       tickLength: 0,
+      mode: "time",
       color: "#a6a6a6",
     },
     yaxis: {
       tickMapper: function (val, i, length) {
-        if (i % 2 == 0 || i == length - 1) {
+        if (i == 0 || i == length - 1) {
           val.label = "";
           return val;
         }
         return val;
       },
+      labelWidth: 40,
+      min: 0.01,
       color: "#a6a6a6",
     },
     grid: {
-      borderWidth: 0,
+      borderWidth: 1,
+      borderColor: "#a6a6a6",
       hoverable: true,
     },
     lines: { show: true, fill: true },

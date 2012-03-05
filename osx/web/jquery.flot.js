@@ -66,7 +66,7 @@
                     max: null, // max. value to show, null means set automatically
                     autoscaleMargin: null, // margin in % to add if auto-setting min/max
                     ticks: null, // either [1, 3] or [[1, "a"], 3] or (fn: axis info -> ticks) or app. number of ticks for auto-ticks
-                    tickMapper: null, // fn: i, val -> val
+                    tickMapper: null, // fn: val, i, length-> val
                     tickFormatter: null, // fn: number -> string
                     labelWidth: null, // size of tick labels in pixels
                     labelHeight: null,
@@ -1074,10 +1074,8 @@
                     allocateAxisBoxSecondPhase(axis);
                 });
             }
-
-            plotOffset.left = 0;
-            plotOffset.right = 0;
-            plotWidth = canvasWidth;
+            
+            plotWidth = canvasWidth - plotOffset.left - plotOffset.right;
             plotHeight = canvasHeight - plotOffset.bottom - plotOffset.top;
 
             // now we got the proper plot dimensions, we can compute the scaling
@@ -1393,9 +1391,10 @@
             }
 
             axis.tickGenerator = generator;
-
             if ($.isFunction(opts.tickFormatter))
-                axis.tickFormatter = function (v, axis) { return "" + opts.tickFormatter(v, axis); };
+                axis.tickFormatter = function (v, axis) {
+                  return "" + opts.tickFormatter(v, axis);
+                };
             else
                 axis.tickFormatter = formatter;
 
@@ -1405,7 +1404,6 @@
                 axis.tickMapper = function(val) {
                   return val;
                 };
-
         }
         
         function setTicks(axis) {
@@ -1737,8 +1735,7 @@
                                 y = box.top + box.height - box.padding - tick.height;
                         }
                         else {
-                            y = plotOffset.top + axis.p2c(tick.v) - tick.height;
-                            //y = plotOffset.top + axis.p2c(tick.v) - tick.height/2;
+                            y = plotOffset.top + axis.p2c(tick.v) - tick.height/2;
                             if (axis.position == "left")
                                 x = box.left + box.width - box.padding - line.width;
                             else

@@ -1689,7 +1689,7 @@
 						<object class="NSTextField" id="115109099">
 							<reference key="NSNextResponder" ref="138075249"/>
 							<int key="NSvFlags">266</int>
-							<string key="NSFrame">{{17, 456}, {626, 28}}</string>
+							<string key="NSFrame">{{42, 457}, {626, 28}}</string>
 							<reference key="NSSuperview" ref="138075249"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="484979040"/>
@@ -1729,7 +1729,7 @@
 						<object class="NSSegmentedControl" id="484979040">
 							<reference key="NSNextResponder" ref="138075249"/>
 							<int key="NSvFlags">265</int>
-							<string key="NSFrame">{{648, 458}, {132, 25}}</string>
+							<string key="NSFrame">{{650, 458}, {132, 25}}</string>
 							<reference key="NSSuperview" ref="138075249"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="935487624"/>
@@ -3541,8 +3541,8 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="935487624"/>
-							<reference ref="115109099"/>
 							<reference ref="484979040"/>
+							<reference ref="115109099"/>
 						</object>
 						<reference key="parent" ref="324008565"/>
 					</object>
