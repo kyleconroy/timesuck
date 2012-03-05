@@ -22,6 +22,8 @@
     [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"WebKitDeveloperExtras"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+    [window setBackgroundColor: NSColor.whiteColor];
+    
     // Set last wake to now
     lastWake = [[NSDate alloc] init];
     selectedDate = [[NSDate alloc] init];
@@ -92,6 +94,7 @@
     NSURL* fileURL = [NSURL fileURLWithPath:filePath];
     NSURLRequest* request = [NSURLRequest requestWithURL:fileURL];
     [[webView mainFrame] loadRequest:request];
+    [[[webView mainFrame] frameView] setAllowsScrolling:NO];
 }
 
 - (NSDate *)parseDate:(NSString *)dateStr
