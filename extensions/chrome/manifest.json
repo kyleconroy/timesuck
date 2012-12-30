@@ -1,16 +1,17 @@
 {
-  "name": "Timesuck Web",
-  "version": "0.1",
+  "name": "Timesuck",
+  "version": "0.2",
+  "manifest_version": 2,
   "description": "Track the time you spend on websites",
   "icons": { "16": "images/icon16.png",
            "48": "images/icon48.png",
           "128": "images/icon128.png" },
-  "background_page": "html/background.html",
-  "update_url": "https://raw.github.com/derferman/timesuck/master/extensions/chrome/update.xml",
+  "background": {
+    "scripts": ["js/timesuck.js"]
+  },
   "permissions": [
     "tabs",
     "windows",
-    "<all_urls>",
-    "http://localhost:9045/log"
+    "unlimitedStorage"
   ]
 }

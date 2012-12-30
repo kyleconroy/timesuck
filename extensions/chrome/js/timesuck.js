@@ -1,63 +1,52 @@
 // The current active URL
-currentWebsite = {};
+times = [];
 
-var formatDate = function(date) {
-  return date.getTime() / 1000;
+var flush = function() {
+  for(var i = times.length - 1; i >= 0; i--) {
+    var entry = times.shift();
+
+    var parser = document.createElement('a');
+    parser.href = entry.url
+
+    if (parser.protocol.search('chrome') >= 0) {
+      continue;
+    }
+
+    var interval = new Date() - entry.date;
+    console.log(interval + " " + entry.url);
+  }
 }
 
+var track = function(tab) {
+  flush();
 
-var changeCurrentUrl = function(tab) {
-  if (tab == undefined)
-    return;
-
-  if (tab.url) {
-    domain = tab.url.replace('http://','').replace('https://','');
-    domain = domain.replace('www.','').split(/[/?#]/)[0];
-  } else {
-    domain = "";
-  }
-
-  if (currentWebsite.domain == domain) {
-    return;
-  }
-
-  if (currentWebsite.domain) {
-    currentWebsite.end = formatDate(new Date());
-    $.ajax({
-      type: 'POST',
-      url: "http://localhost:9045/log",
-      data: currentWebsite,
-      dataType: "json"
-    })
-  }
-    
-  currentWebsite = {
-    "start": formatDate(new Date()),
-    "domain": domain
-  }
+  times.push({
+    url: tab.url,
+    date: new Date()
+  });
 };
 
 chrome.tabs.onSelectionChanged.addListener(function(tabId, selectInfo) {
   chrome.tabs.get(tabId, function(tab) {
-    changeCurrentUrl(tab);
+    track(tab);
   });
 });
 
 chrome.windows.onFocusChanged.addListener(function(windowId) {
-  if (windowId < 0) {
-    changeCurrentUrl({});
+  if (windowId == chrome.windows.WINDOW_ID_NONE || windowId < 0) {
+    flush();
     return;
   }
 
   chrome.tabs.getSelected(windowId, function(tab) {
-    changeCurrentUrl(tab);
+    track(tab);
   });
 });
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   chrome.tabs.getSelected(tab.windowId, function(currentTab) {
     if (currentTab.id == tabId && currentTab.status == "complete") {
-      changeCurrentUrl(tab);
+      track(tab);
     }
   });
 });
