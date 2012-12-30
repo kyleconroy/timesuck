@@ -1,4 +1,26 @@
-// The current active URL
+
+/* DB */
+var db = null;
+
+var onerror = function(e) {
+  console.log(e.value);
+}
+
+var init = function() {
+  var request = indexedDB.open("timesuck", 2);
+
+  request.onsuccess = function(e) {
+    console.log('Opened Database');
+    db = request.result;
+  }
+
+  request.onupgradeneeded = function (e) {
+    e.currentTarget.result.createObjectStore("visit", {keyPath: "id", autoIncrement: true});
+  };
+
+  request.onerror = onerror;
+}()
+
 times = [];
 
 var flush = function() {
@@ -12,8 +34,22 @@ var flush = function() {
       continue;
     }
 
-    var interval = new Date() - entry.date;
-    console.log(interval + " " + entry.url);
+    if (db == null) {
+      continue;
+    }
+
+    var trans = db.transaction(["visit"], "readwrite");
+    var store = trans.objectStore("visit");
+  
+    var now = new Date();
+
+    var request = store.add({
+      "url": entry.url,
+      "duration": now - entry.date,
+      "timestamp" : now.getTime()
+    });
+
+    request.onerror = onerror;
   }
 }
 
