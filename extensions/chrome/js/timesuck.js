@@ -86,3 +86,9 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     }
   });
 });
+
+chrome.browserAction.onClicked.addListener(function(tab) {
+  chrome.tabs.create({
+    url: "report.html"
+  });
+});
