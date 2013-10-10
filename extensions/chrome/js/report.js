@@ -164,6 +164,7 @@ function isEvil(result) {
     || a.hostname == 'www.facebook.com'
     || a.hostname == 'facebook.com'
     || a.hostname == 'www.youtube.com'
+    || a.hostname == 'news.ycombinator.com'
     || a.hostname == 'youtube.com');
 
 }

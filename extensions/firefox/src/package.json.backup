@@ -1,0 +1,8 @@
+{
+  "name": "timesuck",
+  "fullName": "Timesuck",
+  "description": "private time tracking",
+  "author": "Kyle Conroy",
+  "license": "MPL 2.0",
+  "version": "0.1"
+}
