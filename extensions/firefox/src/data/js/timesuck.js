@@ -12,7 +12,7 @@ var options = {
 
 
 self.port.on("gotbucket", function(payload) {
-  buckets.push([payload.x, payload.y / 60.0]);
+  buckets.push([payload.x, payload.y / 60]);
 
   if (buckets.length == 24) {
     $("#graph").plot([{data: buckets, lines: { show: true, steps: true }}], options);
