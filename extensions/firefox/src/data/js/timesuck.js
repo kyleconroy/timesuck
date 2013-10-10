@@ -15,7 +15,6 @@ self.port.on("gotbucket", function(payload) {
   buckets.push([payload.x, payload.y / 60.0]);
 
   if (buckets.length == 24) {
-    console.log(buckets);
     $("#graph").plot([{data: buckets, lines: { show: true, steps: true }}], options);
   }
 

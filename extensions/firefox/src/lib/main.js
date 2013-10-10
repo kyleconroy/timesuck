@@ -35,8 +35,6 @@ var track = function() {
   incr(month);
   incr(day);
   incr(hour);
-  
-  console.log("track");
 }
 
 // add a listener to the 'activate' event
