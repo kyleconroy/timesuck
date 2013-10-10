@@ -11,10 +11,10 @@ tools/addon-sdk:
 	mkdir -p tools
 	curl -OL https://ftp.mozilla.org/pub/mozilla.org/labs/jetpack/jetpack-sdk-latest.tar.gz 
 	tar -xf jetpack-sdk-latest.tar.gz
-	mv addon-sdk-1.12 tools/addon-sdk
+	mv addon-sdk-1.14 tools/addon-sdk
 	rm -f jetpack-sdk-latest.tar.gz
 
-test:
+test: tools
 	$(cfx) run --pkgdir src
 
 clean:

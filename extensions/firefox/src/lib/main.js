@@ -1,78 +1,84 @@
-var pb = require("private-browsing");
-var tabs = require("tabs");
-var windows = require("windows");
+var windows = require("sdk/windows").browserWindows;
+var tabs = require("sdk/tabs");
+var simple = require("sdk/simple-storage");
+var timers = require("sdk/timers");
+var myself = require("sdk/self");
+var tabs = require("sdk/tabs");
+var widget = require("sdk/widget");
 
-var window = require("window-utils").activeWindow;
+// Hooray race conditions
+var hasFocus = true;
 
-var times = {};
-
-function track(tab) {
-  if (times[tab] === undefined) {
-    return;
-  }
-
-  var tracked = times[tab];
-  delete times[tab];
-
-  var interval = new Date() - tracked.date;
-  console.log(interval + ' ' + tracked.url);
+var incr = function(key) {
+  var value = simple.storage[key] || 0;
+  simple.storage[key] = value + 1;
 }
 
-// Listen for tab content loads.
-tabs.on('ready', function(tab) {
-  if (pb.isActive) {
+var track = function() {
+  if (!hasFocus || windows.activeWindow === null) {
     return;
   }
 
-  if (tabs.activeTab == tab) {
-    track(tab);
+  var tab = windows.activeWindow.tabs.activeTab;
 
-    times[tab] = {
-      url: tab.url,
-      date: new Date()
-    }
-  }
-});
-
-tabs.on('activate', function(tab) {
-  if (pb.isActive) {
+  if (tab === null) {
     return;
   }
 
-  times[tab] = {
-    url: tab.url,
-    date: new Date()
-  }
+  now = new Date();
+
+  var year = "default:" + now.getUTCFullYear();
+  var month = year + ":" + now.getUTCMonth();
+  var day = month + ":" + now.getUTCDate();
+  var hour = day + ":" + now.getUTCHours();
+
+  incr(month);
+  incr(day);
+  incr(hour);
+  
+  console.log("track");
+}
+
+// add a listener to the 'activate' event
+windows.on('activate', function(window) {
+  hasFocus = true;
 });
 
-tabs.on('deactivate', function(tab) {
-  if (pb.isActive) {
-    return;
-  }
-
-  track(tab);
+windows.on('open', function(window) {
+  hasFocus = true;
 });
-
+  
+// add a listener to the 'deactivate' event
 windows.on('deactivate', function(window) {
-  if (pb.isActive) {
-    return;
-  }
-
-  track(tabs.activeTab);
+  hasFocus = false;
 });
 
-windows.on('close', function(window) {
-  if (pb.isActive) {
-    return;
+timers.setInterval(track, 1001);
+
+/*
+*/
+
+widget.Widget({
+  id: "timesuck-link",
+  label: "Timesuck report",
+  contentURL: myself.data.url("icon.png"),
+  onClick: function() {
+    tabs.open({
+      url: myself.data.url("index.html"),
+      onReady: function(tab) {
+        var worker = tab.attach({
+          contentScriptFile: [myself.data.url("js/jquery-2.0.3.min.js"),
+                              myself.data.url("js/jquery.flot.min.js"),
+                              myself.data.url("js/timesuck.js")]
+        });
+
+        worker.port.on("getbucket", function getBucket(payload) {
+          worker.port.emit("gotbucket", {
+            y: simple.storage[payload.key] || 0,
+            x: payload.x
+          });
+        });
+      }
+    });
   }
-
-  track(tabs.activeTab);
-});
-
-tabs.on('close', function(tab) {
-  if (pb.isActive) {
-    return;
-  }
-
-  track(tab);
 });
