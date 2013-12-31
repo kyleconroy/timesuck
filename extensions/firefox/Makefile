@@ -1,8 +1,8 @@
-.PHONY: test clean
+.PHONY: test clean xpi
 
 cfx := tools/addon-sdk/bin/cfx
 
-targetpractice.xpi: tools
+xpi: tools
 	$(cfx) xpi --pkgdir src
 
 tools: tools/addon-sdk
