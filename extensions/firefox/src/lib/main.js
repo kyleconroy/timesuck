@@ -36,7 +36,8 @@ var sites = {
   'i.imgur.com': 2,
   'youtube.com': 1,
   'facebook.com': 2,
-  'new.ycombinator.com': 0.5,
+  'www.facebook.com': 2,
+  'news.ycombinator.com': 0.5,
 }
 
 
