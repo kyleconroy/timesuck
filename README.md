@@ -16,11 +16,11 @@ Timesuck stores all data locally in a SQLite3 database. No data is ever sent to 
 
 ## Download
 
-- [Timesuck for OS X](https://github.com/downloads/derferman/timesuck/Timesuck.zip)
+- [Timesuck for OS X](https://github.com/downloads/kyleconroy/timesuck/Timesuck.zip)
 
 ## Browser Extensions
 
-- [Timesuck for Chrome](https://github.com/downloads/derferman/timesuck/timesuck_chrome_v0.1.crx)
+- [Timesuck for Chrome](https://github.com/downloads/kyleconroy/timesuck/timesuck_chrome_v0.1.crx)
 
 ## How do I see my usage?
 
